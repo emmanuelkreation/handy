@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Pronto Contractors | Steel Fabrication & Industrial Construction Nigeria</title>
+    <!-- Google Fonts + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Scroll Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FFFFFF;
+            color: #1A2C3E;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Color System */
+        :root {
+            --navy: #0B2B4F;
+            --navy-light: #1a3f66;
+            --gold: #D4AF37;
+            --orange: #E25822;
+            --gray-bg: #F8FAFE;
+            --dark-overlay: rgba(0, 0, 0, 0.75);
+        }
+
+        /* Global Styles */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+
+        .section-sub {
+            font-size: 1.2rem;
+            color: #475569;
+            max-width: 700px;
+            margin-bottom: 50px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 34px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--navy);
+            color: white;
+            box-shadow: 0 5px 15px rgba(11, 43, 79, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--orange);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            backdrop-filter: blur(4px);
+        }
+
+        .btn-outline:hover {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: white;
+        }
+
+        .btn-outline-dark {
+            border: 2px solid var(--navy);
+            color: var(--navy);
+            background: transparent;
+        }
+        .btn-outline-dark:hover {
+            background: var(--navy);
+            color: white;
+        }
+
+        /* ---------- NAVBAR (HEADER) ---------- */
+        .navbar {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--navy);
+            letter-spacing: -0.02em;
+        }
+        .logo span {
+            color: var(--orange);
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #1e293b;
+            transition: 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--orange);
+        }
+        .mobile-menu {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--navy);
+        }
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: white;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                padding: 24px;
+                gap: 20px;
+                box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+                border-radius: 0 0 24px 24px;
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Hero Section with Video Background */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+        }
+        .hero-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            filter: brightness(0.45) contrast(1.1);
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
+            z-index: 1;
+        }
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+        .hero-highlight {
+            color: var(--orange);
+        }
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            margin: 40px 0 32px;
+        }
+        .stat h3 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--orange);
+        }
+        .stat p {
+            font-weight: 500;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #E2E8F0;
+        }
+        .problem-section .section-title {
+            color: white;
+        }
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-top: 40px;
+        }
+        @media (max-width: 768px) {
+            .problem-grid { grid-template-columns: 1fr; }
+            .hero-stats { gap: 24px; flex-wrap: wrap; }
+        }
+
+        /* Service Cards */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+        .service-card {
+            background: white;
+            border-radius: 28px;
+            padding: 32px 28px;
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+            border: 1px solid #EDF2F7;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            background: var(--navy);
+            color: white;
+            box-shadow: 0 25px 35px -12px rgba(0,0,0,0.2);
+        }
+        .service-card:hover .service-icon {
+            color: var(--orange);
+        }
+        .service-icon {
+            font-size: 2.8rem;
+            color: var(--navy);
+            margin-bottom: 24px;
+            transition: 0.2s;
+        }
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        /* Social Proof / Client section */
+        .social-proof {
+            background: var(--gray-bg);
+        }
+        .client-badge {
+            background: white;
+            border-radius: 32px;
+            padding: 48px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            border: 1px solid #E2E8F0;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 32px;
+            margin: 48px 0;
+        }
+        .feature-card {
+            padding: 28px;
+            border-left: 4px solid var(--orange);
+            background: #FFFFFF;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(95deg, var(--navy) 0%, #0A2540 100%);
+            color: white;
+            text-align: center;
+        }
+        .cta-section .btn-primary {
+            background: var(--orange);
+        }
+        .cta-section .btn-primary:hover {
+            background: white;
+            color: var(--navy);
+        }
+
+        /* Floating WhatsApp */
+        .float-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 99;
+            transition: 0.2s;
+        }
+        .float-wa:hover { transform: scale(1.1); background: #20b859; }
+
+        /* Footer */
+        footer {
+            background: #0B1C2E;
+            color: #94A3B8;
+            text-align: center;
+            padding: 48px 20px;
+        }
+        footer a {
+            color: #cbd5e1;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: var(--orange);
+        }
+
+        /* Additional image styling */
+        .side-image {
+            border-radius: 28px;
+            width: 100%;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            transition: transform 0.4s;
+        }
+        .side-image:hover {
+            transform: scale(1.02);
+        }
+        .inline-img {
+            margin-top: 24px;
+            border-radius: 24px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER (NAVBAR) -->
+<div class="navbar">
+    <div class="nav-container">
+        <div class="logo">PRONTO<span> Contractors</span></div>
+        <div class="mobile-menu" id="mobileMenuBtn"><i class="fas fa-bars"></i></div>
+        <div class="nav-links" id="navLinks">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#portfolio" class="nav-link">Portfolio</a>
+            <a href="#contact-footer" class="nav-link">Contact</a>
+        </div>
+    </div>
+</div>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/2348168886666" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+    <video autoplay muted loop playsinline class="hero-video-bg">
+        <source src="https://cdn.coverr.co/videos/coverr-welding-sparks-184470/1080p.mp4" type="video/mp4">
+        <source src="https://videos.pexels.com/video-files/854975/854975-uhd_2560_1440_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <div data-aos="fade-up" data-aos-duration="900">
+            <h1>Steel that doesn't bend.<br> <span class="hero-highlight">Deadlines that don't break.</span></h1>
+            <p style="font-size: 1.2rem; max-width: 600px; margin: 24px 0;">You have a million things that could go wrong. We built Pronto to be the one thing you never worry about.</p>
+            <div class="hero-stats">
+                <div class="stat"><h3 class="counter" data-target="40">0</h3><p>Years Experience</p></div>
+                <div class="stat"><h3 class="counter" data-target="500">0</h3><p>Projects Delivered</p></div>
+                <div class="stat"><h3 class="counter" data-target="100">0</h3><p>Satisfaction %</p></div>
+            </div>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <a href="https://wa.me/2348168886666" class="btn btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp +234 816 888 6666</a>
+                <a href="#services" class="btn btn-outline">Explore Services →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROBLEM SECTION (with added image) -->
+<section class="problem-section">
+    <div class="container">
+        <div data-aos="fade-right">
+            <h2 class="section-title" style="color: white;">What keeps project managers awake at 2am.</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 32px;">Welds that fail inspection. Steel that arrives late. Coatings that peel after six months. Subcontractors who disappear when things get difficult.</p>
+        </div>
+        <div class="problem-grid">
+            <div data-aos="fade-up">
+                <p>You have dealt with all of it. Probably more than once.</p>
+                <p style="margin-top: 24px; font-weight: 700; font-size: 1.3rem;">Here is what makes us different.</p>
+                <ul style="margin-top: 20px; list-style: none;">
+                    <li><i class="fas fa-check-circle" style="color: var(--orange); margin-right: 12px;"></i> We do not disappear. We do not cut corners.</li>
+                    <li><i class="fas fa-check-circle" style="color: var(--orange); margin-right: 12px;"></i> Certified welders. DNV compliant fabrication.</li>
+                    <li><i class="fas fa-check-circle" style="color: var(--orange); margin-right: 12px;"></i> ISO 9001 quality systems. Real accountability.</li>
+                </ul>
+            </div>
+            <div data-aos="fade-left">
+                <img src="https://images.pexels.com/photos/209241/pexels-photo-209241.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Steel inspection" class="side-image">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES PREVIEW SECTION with more images -->
+<section id="services">
+    <div class="container">
+        <div data-aos="fade-up">
+            <h2 class="section-title">What We Build</h2>
+            <p class="section-sub">Hypercity Mall. Garden City Mall. 1200 barrel tanks. DNV skids. Feed mills. Warehouses. Production platforms in the Niger Delta. Big projects. Tough environments. No excuses.</p>
+        </div>
+        <div class="service-grid" id="servicePreviewGrid"></div>
+        <!-- extra image banner -->
+        <div data-aos="zoom-in" style="margin-top: 60px;">
+            <img src="https://images.pexels.com/photos/159213/construction-crane-industry-heavy-159213.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Heavy steel construction" class="side-image" style="max-height: 400px; object-fit: cover;">
+        </div>
+    </div>
+</section>
+
+<!-- SOCIAL PROOF (with image) -->
+<section class="social-proof" id="about">
+    <div class="container">
+        <div data-aos="zoom-in">
+            <div class="client-badge">
+                <i class="fas fa-building" style="font-size: 3rem; color: var(--navy);"></i>
+                <h3 style="margin: 20px 0 12px;">Trusted by industry leaders</h3>
+                <p style="font-size: 1.2rem; font-weight: 600;">Julius Berger — Subcontractor for Hypercity Mall, Eastern Bypass, PH</p>
+                <p>They don't partner with amateurs. Neither should you.</p>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 48px; margin: 32px 0;">
+                    <div><strong>40+</strong><br>Years</div>
+                    <div><strong>500+</strong><br>Projects</div>
+                    <div><strong>100%</strong><br>Satisfaction</div>
+                </div>
+                <img src="https://images.pexels.com/photos/3112840/pexels-photo-3112840.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hypercity Mall steel structure" style="border-radius: 24px; width: 100%; margin-top: 20px;">
+                <p style="margin-top: 20px;"><em>“Pronto delivered the steel framework for Hypercity Mall on time, no drama. Exactly what we needed.”</em> — Project Manager, Julius Berger</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY CHOOSE US with additional images -->
+<section>
+    <div class="container">
+        <div data-aos="fade-up"><h2 class="section-title">The Pronto Difference</h2></div>
+        <div class="feature-grid">
+            <div class="feature-card" data-aos="fade-up"><i class="fas fa-shield-alt" style="font-size: 2rem; color: var(--orange);"></i><h3>Safety First</h3><p>Zero harm culture, rigorous HSE, comprehensive risk assessments.</p></div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-clock" style="font-size: 2rem; color: var(--orange);"></i><h3>On-Time Delivery</h3><p>Robust scheduling, proactive risk management. No surprises.</p></div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-microchip" style="font-size: 2rem; color: var(--orange);"></i><h3>Engineering Excellence</h3><p>API, DNV, ABS, BS EN standards. Design-led fabrication.</p></div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-clipboard-list" style="font-size: 2rem; color: var(--orange);"></i><h3>Compliance & QA/QC</h3><p>Independent inspection, NDT, material traceability, ISO 9001.</p></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin: 40px 0;" data-aos="fade-up">
+            <img src="https://images.pexels.com/photos/1125891/pexels-photo-1125891.jpeg?auto=compress&cs=tinysrgb&w=800" class="side-image" alt="Certified welding">
+            <img src="https://images.pexels.com/photos/696357/pexels-photo-696357.jpeg?auto=compress&cs=tinysrgb&w=800" class="side-image" alt="DNV container skid">
+        </div>
+        <div style="background: #0B2B4F; color: white; border-radius: 28px; padding: 32px; text-align: center;" data-aos="flip-up">
+            <i class="fas fa-certificate" style="font-size: 3rem; color: var(--orange);"></i>
+            <p style="margin-top: 16px; font-weight: 700;">First DNV 2.7-1 Certified Manufacturer in Nigeria</p>
+            <p>ISO 9001:2015 • HSE ISPON • MAN Registered • NIPEX</p>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA + FOOTER ANCHOR -->
+<section class="cta-section" id="contact-footer">
+    <div class="container">
+        <div data-aos="fade-up">
+            <h2 style="font-size: 2.5rem;">Stop reading. Start building.</h2>
+            <p style="font-size: 1.2rem; max-width: 600px; margin: 24px auto;">Call. WhatsApp. Email. Walk into our yard. Let's turn your drawings into steel.</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 32px 0;">
+                <a href="https://wa.me/2348168886666" class="btn btn-primary" style="background: var(--orange);"><i class="fab fa-whatsapp"></i> WhatsApp Now</a>
+                <a href="tel:+2348168886666" class="btn btn-outline-dark" style="border-color: white; color: white;">Call +234 816 888 6666</a>
+            </div>
+            <p><i class="fas fa-map-marker-alt"></i> 5 National Supply Road, Trans Amadi, Port Harcourt</p>
+            <p>info@prontocontractorsltd.com | @pronto.contractors</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; text-align: left;">
+            <div>
+                <h3 style="color: white;">Pronto Contractors Ltd</h3>
+                <p>DNV 2.7-1 Certified · ISO 9001:2015<br>Engineering · Fabrication · Construction</p>
+            </div>
+            <div>
+                <h4 style="color: white;">Quick Links</h4>
+                <p><a href="#home">Home</a> | <a href="#services">Services</a> | <a href="#about">About</a> | <a href="#contact-footer">Contact</a></p>
+            </div>
+            <div>
+                <h4 style="color: white;">Contact</h4>
+                <p><i class="fas fa-phone"></i> +234 816 888 6666<br><i class="fab fa-whatsapp"></i> WhatsApp: +234 816 888 6666<br><i class="fas fa-envelope"></i> info@prontocontractorsltd.com</p>
+            </div>
+        </div>
+        <hr style="margin: 32px 0; border-color: #334155;">
+        <p>© 2026 Pronto Contractors Ltd — Constructing A Better Future. All rights reserved.</p>
+        <p style="margin-top: 12px;"><i class="fab fa-instagram"></i> @pronto.contractors &nbsp;&nbsp; <i class="fab fa-linkedin"></i> Pronto Contractors</p>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Counter Animation
+    const counters = document.querySelectorAll('.counter');
+    const startCounter = (el) => {
+        const target = parseInt(el.getAttribute('data-target'));
+        let count = 0;
+        const update = () => {
+            if(count <= target) {
+                el.innerText = count;
+                count += Math.ceil(target / 40);
+                setTimeout(update, 25);
+            } else {
+                el.innerText = target;
+            }
+        };
+        update();
+    };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                startCounter(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    counters.forEach(c => observer.observe(c));
+
+    // Services Data
+    const servicesList = [
+        { icon: "fa-building", title: "Structural Steel Fabrication & Erection", desc: "Industrial buildings, warehouses, long span roofing. Every joint inspected, every weld certified." },
+        { icon: "fa-oil-can", title: "Tank Farm Fabrication & Installation", desc: "API 650 compliant. Fixed/Floating roof. Foundation to shell." },
+        { icon: "fa-ship", title: "DNV Skids, Containers & Custom Fab", desc: "DNV 2.7-1 certified, load-out ready. Built for the harshest marine environments." },
+        { icon: "fa-pipe-valve", title: "Piping Fabrication & Installation", desc: "Carbon steel, stainless steel, alloy. GTAW, SMAW, FCAW. NDT & X-ray." },
+        { icon: "fa-paint-roller", title: "Sandblasting & Corrosion Protection", desc: "Sa 2.5 surface prep, NACE standards, zinc-rich primer, topcoat." },
+        { icon: "fa-tools", title: "Maintenance, Repairs & Upgrades", desc: "Repair damaged plates, replace sections, blast & repaint. Extend asset life." }
+    ];
+    const container = document.getElementById('servicePreviewGrid');
+    if(container) {
+        container.innerHTML = servicesList.map(s => `
+            <div class="service-card" data-aos="fade-up">
+                <i class="fas ${s.icon} service-icon"></i>
+                <h3>${s.title}</h3>
+                <p>${s.desc}</p>
+            </div>
+        `).join('');
+    }
+
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    if(mobileBtn) {
+        mobileBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    }
+    // Close mobile menu after clicking a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('show');
+        });
+    });
+
+    // Active link highlight on scroll
+    const sections = ['home', 'services', 'about', 'portfolio', 'contact-footer'];
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(sectionId => {
+            const section = document.getElementById(sectionId);
+            if(section) {
+                const sectionTop = section.offsetTop - 100;
+                if(pageYOffset >= sectionTop) current = sectionId;
+            }
+        });
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+            if(link.getAttribute('href') === `#${current}`) link.classList.add('active');
+        });
+    });
+
+    AOS.init({ duration: 800, once: true, offset: 80 });
+</script>
+</body>
+</html>
