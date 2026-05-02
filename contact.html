@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Handygidi – Contact & Book Consultation | Interior Design Lagos</title>
+  <title>Handygidi – Contact & Request Quote | Furniture Manufacturer Lagos</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     * {
@@ -130,11 +129,11 @@
       .nav-container { flex-direction: column; }
       .nav-links { justify-content: center; gap: 20px; }
     }
-    /* Hero with bg image - FIXED (reliable image) */
+    /* Hero with bg image */
     .hero {
-      background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%), url('https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1600');
+      background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 100%), url('https://images.pexels.com/photos/1648772/pexels-photo-1648772.jpeg?auto=compress&cs=tinysrgb&w=1600');
       background-size: cover;
-      background-position: center 40%;
+      background-position: center 30%;
       color: white;
       text-align: center;
     }
@@ -177,7 +176,7 @@
       font-size: 1.3rem;
       color: var(--black);
     }
-    /* Form styles (both quick and booking) - FULLY STYLED */
+    /* Form styles */
     .contact-form input, .contact-form select, .contact-form textarea,
     .booking-form input, .booking-form select, .booking-form textarea {
       width: 100%;
@@ -209,7 +208,7 @@
       width: 100%;
       z-index: 1;
     }
-    /* Consultation booking section - PREMIUM STYLES */
+    /* Booking section */
     .booking-section {
       background: var(--gray-bg);
       border-radius: 28px;
@@ -218,7 +217,7 @@
     .booking-inner {
       padding: 40px;
     }
-    /* CTA section */
+    /* CTA bg */
     .cta-bg {
       background: linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/2251247/pexels-photo-2251247.jpeg?auto=compress&cs=tinysrgb&w=1600');
       background-size: cover;
@@ -285,7 +284,7 @@
       <a href="portfolio.html">Portfolio</a>
       <a href="services.html">Services</a>
       <a href="contact.html">Contact</a>
-      <a href="contact.html#booking" class="btn-nav">Book consult</a>
+      <a href="contact.html#booking" class="btn-nav">Request quote</a>
     </div>
   </div>
 </nav>
@@ -294,13 +293,13 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container hero-content">
-      <h1>Let’s create something beautiful — <span style="color: #F4B400;">reach out today</span></h1>
-      <p>Call, WhatsApp, or fill the form. We reply within hours, not days. Free consultation for first‑time clients.</p>
-      <a href="#booking" class="btn-primary">Book a free consultation →</a>
+      <h1>Let's build something great — <span style="color: #F4B400;">reach out today</span></h1>
+      <p>Call, WhatsApp, or fill the form. We reply within hours with a free quote for your furniture needs.</p>
+      <a href="#booking" class="btn-primary">Request a free quote →</a>
     </div>
   </section>
 
-  <!-- Contact Info + Quick Form (two columns) -->
+  <!-- Contact Info + Quick Message Form -->
   <section>
     <div class="container">
       <div class="two-col">
@@ -320,10 +319,11 @@
           </div>
           <div class="contact-item">
             <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div><strong>Service area</strong><br>Lekki, VI, Ikeja, GRA, Surulere, Ajah & entire Lagos</div>
+            <div><strong>Workshop / Showroom</strong><br>Lekki Phase 1, Lagos (by appointment)</div>
           </div>
           <div class="social-icons" style="margin-top: 20px;">
-            <i class="fab fa-instagram"></i> <i class="fab fa-facebook"></i> <i class="fab fa-twitter"></i>
+            <a href="https://www.instagram.com/handygidi" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/Handygidi" target="_blank"><i class="fab fa-facebook"></i></a>
           </div>
         </div>
 
@@ -334,13 +334,14 @@
             <input type="tel" placeholder="Phone number" required>
             <input type="email" placeholder="Email (optional)">
             <select>
-              <option>I’m interested in...</option>
-              <option>Full home design</option>
-              <option>Furniture purchase</option>
-              <option>Office design</option>
-              <option>Free consultation</option>
+              <option>I'm interested in...</option>
+              <option>Custom furniture</option>
+              <option>Bulk order for office/hotel</option>
+              <option>Restoration & repair</option>
+              <option>Upholstery service</option>
+              <option>Free quote</option>
             </select>
-            <textarea rows="3" placeholder="Tell us about your space or question..."></textarea>
+            <textarea rows="3" placeholder="Tell us about what you need... (e.g., 'I need a 6-seater dining table, mahogany')"></textarea>
             <button type="submit" class="btn-primary" style="width:100%;">Send message →</button>
           </form>
         </div>
@@ -348,42 +349,43 @@
     </div>
   </section>
 
-  <!-- Map Section -->
+  <!-- Map Section (Lekki, Lagos) -->
   <section style="background: var(--gray-bg);">
     <div class="container">
-      <h2 class="fade-up" style="text-align: center;">We serve all of Lagos — <span style="color: var(--yellow);">based in Lekki</span></h2>
+      <h2 class="fade-up" style="text-align: center;">Visit our workshop — <span style="color: var(--yellow);">by appointment only</span></h2>
       <div class="map-container fade-up">
         <div id="map"></div>
       </div>
-      <p style="text-align: center; margin-top: 16px;">📍 Our design studio & showroom (by appointment) – Lekki Phase 1, Lagos</p>
+      <p style="text-align: center; margin-top: 16px;">📍 Our production workshop & showroom – Lekki Phase 1, Lagos. Please call before visiting.</p>
     </div>
   </section>
 
-  <!-- Consultation Booking Section (fully styled) -->
+  <!-- Dedicated Quote Request / Booking Section -->
   <section id="booking">
     <div class="container">
       <div class="booking-section fade-up">
         <div class="booking-inner">
-          <h2 style="text-align: center;">Book a <span style="color: var(--yellow);">free consultation</span></h2>
-          <p style="text-align: center; max-width: 600px; margin: 0 auto 30px;">No pressure, no fees. Just a friendly chat about your space, style, and budget.</p>
-          <form class="booking-form" id="bookingForm" style="max-width: 700px; margin: 0 auto;">
+          <h2 style="text-align: center;">Request a <span style="color: var(--yellow);">free, no‑obligation quote</span></h2>
+          <p style="text-align: center; max-width: 600px; margin: 0 auto 30px;">Tell us about your furniture project – custom piece, bulk order, or restoration. We'll reply within 24 hours.</p>
+          <form class="booking-form" id="quoteForm" style="max-width: 700px; margin: 0 auto;">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
               <input type="text" placeholder="Full name" required>
               <input type="tel" placeholder="Phone number" required>
             </div>
             <input type="email" placeholder="Email address">
             <select required>
-              <option value="">Preferred consultation method</option>
-              <option>Phone call</option>
-              <option>WhatsApp video</option>
-              <option>In-person (Lekki studio)</option>
-              <option>Zoom / Google Meet</option>
+              <option value="">Service needed</option>
+              <option>Custom furniture (single piece)</option>
+              <option>Bulk production (10+ units)</option>
+              <option>Restoration / Repair</option>
+              <option>Upholstery only</option>
+              <option>Other / Not sure</option>
             </select>
-            <input type="date" placeholder="Preferred date">
-            <textarea rows="3" placeholder="Tell us about your project (e.g., living room makeover, full apartment, office)..."></textarea>
-            <button type="submit" class="btn-primary" style="width:100%;">Request free consultation →</button>
+            <input type="text" placeholder="Preferred material (wood type, fabric color, etc.)">
+            <textarea rows="4" placeholder="Describe your project in detail – dimensions, style reference, deadline, budget range..."></textarea>
+            <button type="submit" class="btn-primary" style="width:100%;">Send quote request →</button>
           </form>
-          <p style="text-align: center; margin-top: 20px; font-size: 0.9rem;">We’ll respond within 2 hours during business days (8am–6pm).</p>
+          <p style="text-align: center; margin-top: 20px; font-size: 0.9rem;">We respect your privacy. Your information is only used to prepare your quote.</p>
         </div>
       </div>
     </div>
@@ -392,10 +394,10 @@
   <!-- Final CTA with background image -->
   <section class="cta-bg">
     <div class="container" style="text-align: center;">
-      <h2 class="fade-up">Ready to transform your space?</h2>
-      <p style="font-size: 1.2rem; max-width: 550px; margin: 0 auto 20px;">Don’t wait – your dream home is just a conversation away.</p>
-      <a href="#booking" class="btn-primary" style="background: #F4B400; color: black;">👉 Book your free session</a>
-      <p style="margin-top: 24px;"><i class="fab fa-whatsapp"></i> Or WhatsApp us for immediate chat</p>
+      <h2 class="fade-up">Ready to order or need advice?</h2>
+      <p style="font-size: 1.2rem; max-width: 550px; margin: 0 auto 20px;">Let's discuss your furniture project – no pressure, just honest guidance.</p>
+      <a href="#booking" class="btn-primary" style="background: #F4B400; color: black;">👉 Request free quote</a>
+      <p style="margin-top: 24px;"><i class="fab fa-whatsapp"></i> Or WhatsApp us for a quick chat</p>
     </div>
   </section>
 </main>
@@ -405,9 +407,10 @@
   <div class="container footer-grid">
     <div class="footer-col">
       <h4>Handygidi</h4>
-      <p>Premium interior design & furniture – Lagos wide. We make spaces you’ll love.</p>
+      <p>Lagos's trusted furniture manufacturer. Quality, durability, and style – made locally.</p>
       <div class="social-icons" style="margin-top: 16px;">
-        <i class="fab fa-instagram"></i> <i class="fab fa-facebook"></i> <i class="fab fa-twitter"></i>
+        <a href="https://www.instagram.com/handygidi" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/Handygidi" target="_blank"><i class="fab fa-facebook"></i></a>
       </div>
     </div>
     <div class="footer-col">
@@ -415,29 +418,28 @@
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="portfolio.html">Portfolio</a>
-      <a href="services,html">Services</a>
+      <a href="services.html">Services</a>
       <a href="contact.html">Contact</a>
     </div>
     <div class="footer-col">
-      <h4>Legal</h4>
-      <a href="#">Privacy policy</a>
-      <a href="#">Terms of service</a>
-      <a href="#">Refund policy</a>
+      <h4>Social Media</h4>
+      <a href="https://www.instagram.com/handygidi" target="_blank">Instagram: @handygidi</a>
+      <a href="https://www.facebook.com/Handygidi" target="_blank">Facebook Page</a>
     </div>
     <div class="footer-col newsletter">
-      <h4>Get design ideas</h4>
+      <h4>Get updates</h4>
       <input type="email" placeholder="Your email">
       <button class="btn-primary" style="margin-top: 10px;">Subscribe</button>
     </div>
   </div>
   <div class="container" style="text-align: center; border-top: 1px solid #333; padding-top: 24px;">
-    <p>© 2025 Handygidi – Style without stress. All rights reserved.</p>
+    <p>© 2025 Handygidi – Quality Furniture, Lagos. All rights reserved.</p>
   </div>
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-  // Initialize map (Lekki Phase 1)
+  // Initialize map (Lekki Phase 1, Lagos)
   const map = L.map('map').setView([6.4654, 3.9084], 13);
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -445,15 +447,15 @@
     maxZoom: 19
   }).addTo(map);
   L.marker([6.4654, 3.9084]).addTo(map)
-    .bindPopup('<b>Handygidi Studio</b><br>Lekki Phase 1, Lagos<br>By appointment only')
+    .bindPopup('<b>Handygidi Workshop</b><br>Lekki Phase 1, Lagos<br>By appointment only')
     .openPopup();
 
-  // Form handling (demo)
+  // Form submissions (demo)
   const forms = document.querySelectorAll('form');
   forms.forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      alert('Thank you! We’ll get back to you within a few hours. (Demo mode)');
+      alert('Thank you! We will get back to you within 24 hours with your free quote. (Demo mode)');
       form.reset();
     });
   });
