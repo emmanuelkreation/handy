@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Handygidi – Portfolio & Reviews | Interior Design Lagos</title>
+  <title>Handygidi – Portfolio | Furniture Made in Lagos</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -56,6 +56,8 @@
       text-decoration: none;
       transition: all 0.3s ease;
       font-size: 1rem;
+      border: none;
+      cursor: pointer;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     }
     .btn-primary:hover {
@@ -128,7 +130,7 @@
     }
     /* Hero with bg image */
     .hero {
-      background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 100%), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+      background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 100%), url('https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg?auto=compress&cs=tinysrgb&w=1600');
       background-size: cover;
       background-position: center 30%;
       color: white;
@@ -141,7 +143,7 @@
     }
     .hero h1 { margin-bottom: 20px; }
     .hero p { font-size: 1.2rem; margin-bottom: 32px; opacity: 0.95; }
-    /* Category filters */
+    /* Filters */
     .filters {
       display: flex;
       flex-wrap: wrap;
@@ -167,7 +169,7 @@
     /* Portfolio grid */
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 30px;
     }
     .portfolio-item {
@@ -203,7 +205,7 @@
     }
     /* Before/After section with bg */
     .beforeafter-bg {
-      background: linear-gradient(90deg, rgba(28,28,28,0.85) 0%, rgba(28,28,28,0.7) 100%), url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+      background: linear-gradient(90deg, rgba(28,28,28,0.85) 0%, rgba(28,28,28,0.7) 100%), url('https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=1600');
       background-size: cover;
       background-attachment: fixed;
       color: white;
@@ -241,9 +243,9 @@
       border-left: 6px solid var(--yellow);
     }
     .stars { color: var(--yellow); margin-bottom: 16px; letter-spacing: 2px; }
-    /* CTA section with bg */
+    /* CTA bg */
     .cta-bg {
-      background: linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1616486338812-3bade91c1e9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+      background: linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/2251247/pexels-photo-2251247.jpeg?auto=compress&cs=tinysrgb&w=1600');
       background-size: cover;
       background-position: center;
       text-align: center;
@@ -301,14 +303,14 @@
 
 <nav class="navbar">
   <div class="container nav-container">
-    <a href="#" class="logo">Handy<span>gidi</span></a>
+    <a href="index.html" class="logo">Handy<span>gidi</span></a>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="portfolio.html">Portfolio</a>
       <a href="services.html">Services</a>
       <a href="contact.html">Contact</a>
-      <a href="contact.html#booking" class="btn-nav">Book consult</a>
+      <a href="contact.html#booking" class="btn-nav">Request quote</a>
     </div>
   </div>
 </nav>
@@ -317,9 +319,9 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container hero-content">
-      <h1>Our work speaks for itself — <span style="color: #F4B400;">see the transformations</span></h1>
-      <p>Real projects. Real homes. Real emotions. Browse through our portfolio and read what our clients have to say.</p>
-      <a href="#" class="btn-primary">Book a free consultation →</a>
+      <h1>From our workshop to your home — <span style="color: #F4B400;">see what we've built</span></h1>
+      <p>Real projects. Real furniture. Real Lagos families and businesses now enjoy quality that lasts.</p>
+      <a href="contact.html#booking" class="btn-primary">Request a custom quote →</a>
     </div>
   </section>
 
@@ -328,81 +330,76 @@
     <div class="container">
       <div class="filters fade-up">
         <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="living">Living Room</button>
-        <button class="filter-btn" data-filter="bedroom">Bedroom</button>
-        <button class="filter-btn" data-filter="office">Office</button>
-        <button class="filter-btn" data-filter="dining">Dining</button>
+        <button class="filter-btn" data-filter="sofa">Sofas & Seating</button>
+        <button class="filter-btn" data-filter="bed">Beds & Bedroom</button>
+        <button class="filter-btn" data-filter="dining">Dining Tables</button>
+        <button class="filter-btn" data-filter="office">Office Furniture</button>
       </div>
       <div class="portfolio-grid" id="portfolioGrid">
-        <!-- Items will be populated by JS, but static fallback included -->
+        <!-- Dynamic content via JS -->
       </div>
       <div style="text-align: center; margin-top: 50px;">
-        <a href="#" class="btn-secondary">View full case studies →</a>
+        <a href="contact.html#booking" class="btn-secondary">Order something similar →</a>
       </div>
     </div>
   </section>
 
-  <!-- Before & After Transformation Section (with bg image) -->
+  <!-- Before & After: Custom Furniture Transformation (bg image) -->
   <section class="beforeafter-bg">
     <div class="container">
-      <h2 class="fade-up" style="text-align: center;">The proof is in the <span style="color: var(--yellow);">transformation</span></h2>
+      <h2 class="fade-up" style="text-align: center;">Custom orders — <span style="color: var(--yellow);">from concept to reality</span></h2>
       <div class="ba-grid">
         <div class="ba-card fade-up">
-          <img class="ba-img" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Before living room">
-          <p><strong>⬅️ Before:</strong> Dark, cramped, outdated</p>
+          <img class="ba-img" src="https://images.pexels.com/photos/3757055/pexels-photo-3757055.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Raw wood">
+          <p><strong>⬅️ Raw materials:</strong> Solid iroko wood before crafting</p>
         </div>
         <div class="ba-card fade-up">
-          <img class="ba-img" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="After living room">
-          <p><strong>➡️ After:</strong> Bright, spacious, elegant</p>
+          <img class="ba-img" src="https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Finished sofa">
+          <p><strong>➡️ Finished piece:</strong> Handcrafted luxury sofa delivered</p>
         </div>
         <div class="ba-card fade-up">
-          <img class="ba-img" src="https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Before office">
-          <p><strong>⬅️ Before:</strong> Messy, uninspiring</p>
+          <img class="ba-img" src="https://images.pexels.com/photos/1648772/pexels-photo-1648772.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Empty room">
+          <p><strong>⬅️ Client's space:</strong> Before our furniture</p>
         </div>
         <div class="ba-card fade-up">
-          <img class="ba-img" src="https://images.unsplash.com/photo-1616486338812-3bade91c1e9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="After office">
-          <p><strong>➡️ After:</strong> Modern, productive, stylish</p>
+          <img class="ba-img" src="https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Furnished room">
+          <p><strong>➡️ After install:</strong> Complete dining set transformed the space</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Client Reviews / Testimonials Section -->
+  <!-- Client Reviews Section -->
   <section style="background: var(--gray-bg);">
     <div class="container">
-      <h2 class="fade-up" style="text-align: center;">What Lagos homeowners are saying — <span style="color: var(--yellow);">100% real</span></h2>
+      <h2 class="fade-up" style="text-align: center;">What our customers say — <span style="color: var(--yellow);">real feedback on our furniture</span></h2>
       <div class="testimonials-grid">
         <div class="testimonial-card fade-up">
           <div class="stars">★★★★★</div>
-          <p>“Handygidi turned my dull living room into a space I actually want to host in. The before/after difference is night and day. Professional, fast, and genuinely caring.”</p>
-          <p style="margin-top: 16px; font-weight: 600;">– Adaobi, Lekki</p>
+          <p>“Handygidi made a custom 6-seater dining table for us. The quality is solid – you can feel the weight of the wood. Delivery was on time and installation perfect. We’re ordering bedroom furniture next.”</p>
+          <p style="margin-top: 16px; font-weight: 600;">– Mrs. Adeola, Lekki</p>
         </div>
         <div class="testimonial-card fade-up">
           <div class="stars">★★★★★</div>
-          <p>“Our office looks like a global brand now. The team understood our culture and created a workspace that boosts productivity. Best decision we made.”</p>
-          <p style="margin-top: 16px; font-weight: 600;">– Michael, VI</p>
+          <p>“We furnished our entire office with Handygidi desks and chairs. The price was fair, and the furniture is better than imported alternatives. Support team was responsive.”</p>
+          <p style="margin-top: 16px; font-weight: 600;">– Michael, VI (Tech Hub)</p>
         </div>
         <div class="testimonial-card fade-up">
           <div class="stars">★★★★★</div>
-          <p>“I was nervous about hiring a designer, but Handygidi made it effortless. They listened, stayed within budget, and the result is stunning. My bedroom is now my sanctuary.”</p>
+          <p>“The sofa they built for my living room is stunning – exactly the color and fabric I wanted. Two years later, still no sagging. That’s real quality.”</p>
           <p style="margin-top: 16px; font-weight: 600;">– Ngozi, Ikeja</p>
-        </div>
-        <div class="testimonial-card fade-up">
-          <div class="stars">★★★★★</div>
-          <p>“The furniture quality and design advice were top-notch. They even helped with lighting and accessories. My apartment has never looked this good.”</p>
-          <p style="margin-top: 16px; font-weight: 600;">– Tunde, GRA</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Call to Action with Background Image -->
+  <!-- Final CTA with Background Image -->
   <section class="cta-bg">
     <div class="container" style="text-align: center;">
-      <h2 class="fade-up">Ready to see your own space here?</h2>
-      <p style="font-size: 1.2rem; max-width: 550px; margin: 0 auto 20px;">Book a free consultation and let’s create a transformation you’ll love.</p>
-      <a href="#" class="btn-primary" style="background: #F4B400; color: black;">👉 Book your free session</a>
-      <p style="margin-top: 24px;"><i class="fab fa-whatsapp"></i> Or WhatsApp +234 901 234 5678</p>
+      <h2 class="fade-up">Have a custom design in mind?</h2>
+      <p style="font-size: 1.2rem; max-width: 550px; margin: 0 auto 20px;">Send us a photo or sketch – we’ll give you a quote within 24 hours. Free consultation.</p>
+      <a href="contact.html#booking" class="btn-primary" style="background: #F4B400; color: black;">👉 Request free quote</a>
+      <p style="margin-top: 24px;"><i class="fab fa-instagram"></i> See more on <a href="https://www.instagram.com/handygidi" style="color: white; text-decoration: underline;" target="_blank">@handygidi</a></p>
     </div>
   </section>
 </main>
@@ -412,47 +409,47 @@
   <div class="container footer-grid">
     <div class="footer-col">
       <h4>Handygidi</h4>
-      <p>Premium interior design & furniture – Lagos wide. We make spaces you’ll love.</p>
+      <p>Lagos's trusted furniture manufacturer. Quality, durability, and style – made locally.</p>
       <div class="social-icons" style="margin-top: 16px;">
-        <i class="fab fa-instagram"></i> <i class="fab fa-facebook"></i> <i class="fab fa-twitter"></i>
+        <a href="https://www.instagram.com/handygidi" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/Handygidi" target="_blank"><i class="fab fa-facebook"></i></a>
       </div>
     </div>
     <div class="footer-col">
       <h4>Explore</h4>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Portfolio</a>
-      <a href="#">Services</a>
-      <a href="#">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
     </div>
     <div class="footer-col">
-      <h4>Legal</h4>
-      <a href="#">Privacy policy</a>
-      <a href="#">Terms of service</a>
-      <a href="#">Refund policy</a>
+      <h4>Social Media</h4>
+      <a href="https://www.instagram.com/handygidi" target="_blank">Instagram: @handygidi</a>
+      <a href="https://www.facebook.com/Handygidi" target="_blank">Facebook Page</a>
     </div>
     <div class="footer-col newsletter">
-      <h4>Get design ideas</h4>
+      <h4>Get updates</h4>
       <input type="email" placeholder="Your email">
       <button class="btn-primary" style="margin-top: 10px;">Subscribe</button>
     </div>
   </div>
   <div class="container" style="text-align: center; border-top: 1px solid #333; padding-top: 24px;">
-    <p>© 2025 Handygidi – Style without stress. All rights reserved.</p>
+    <p>© 2025 Handygidi – Quality Furniture, Lagos. All rights reserved.</p>
   </div>
 </footer>
 
 <script>
-  // Portfolio Data (replace with your own images and projects)
+  // Portfolio Data (replace with actual product images from Handygidi)
   const portfolioItems = [
-    { title: "Minimalist Haven", category: "living", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Neutral tones, natural light, and custom furniture." },
-    { title: "Luxury Lounge", category: "living", img: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Velvet sofas, gold accents, gallery walls." },
-    { title: "Serene Bedroom", category: "bedroom", img: "https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Calming blues, layered textures, smart storage." },
-    { title: "Modern Master", category: "bedroom", img: "https://images.unsplash.com/photo-1616486338812-3bade91c1e9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Statement headboard, mood lighting, organic accents." },
-    { title: "Corporate Elegance", category: "office", img: "https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Ergonomic, minimalist, brand-aligned design." },
-    { title: "Creative Hub", category: "office", img: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Open plan, breakout zones, inspiring colors." },
-    { title: "Dining Perfection", category: "dining", img: "https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Marble table, pendant lights, curated art." },
-    { title: "Cozy Nook", category: "dining", img: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Warm wood, banquette seating, family-friendly." }
+    { title: "Luxury Velvet Sofa", category: "sofa", img: "https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Solid wood frame, high-density foam, premium fabric." },
+    { title: "Modern 3-Seater", category: "sofa", img: "https://images.pexels.com/photos/3757055/pexels-photo-3757055.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Minimalist design, button-tufted back." },
+    { title: "King Size Wooden Bed", category: "bed", img: "https://images.pexels.com/photos/1648772/pexels-photo-1648772.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Mahogany frame, hydraulic storage." },
+    { title: "Upholstered Bed Frame", category: "bed", img: "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Headboard with LED lighting." },
+    { title: "6-Seater Dining Table", category: "dining", img: "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Solid iroko wood + 6 chairs." },
+    { title: "Round Marble Dining", category: "dining", img: "https://images.pexels.com/photos/2251247/pexels-photo-2251247.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Modern pedestal base, velvet chairs." },
+    { title: "Executive Desk Set", category: "office", img: "https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "L-shaped, with drawers." },
+    { title: "Office Cubicles", category: "office", img: "https://images.pexels.com/photos/1006052/pexels-photo-1006052.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Custom sizes for startup offices." }
   ];
 
   function renderPortfolio(filter = "all") {
@@ -463,14 +460,15 @@
       <div class="portfolio-item fade-up">
         <img class="portfolio-img" src="${item.img}" alt="${item.title}">
         <div class="portfolio-info">
-          <div class="portfolio-category">${item.category === "living" ? "Living Room" : item.category === "bedroom" ? "Bedroom" : item.category === "office" ? "Office" : "Dining"}</div>
+          <div class="portfolio-category">${item.category === "sofa" ? "Sofa" : item.category === "bed" ? "Bedroom" : item.category === "dining" ? "Dining" : "Office"}</div>
           <div class="portfolio-title">${item.title}</div>
           <p style="color: #666;">${item.desc}</p>
+          <a href="contact.html#booking" class="btn-secondary" style="margin-left:0; margin-top:12px; display:inline-block;">Request quote →</a>
         </div>
       </div>
     `).join("");
-    // Re-trigger fade-up observer for new items
-    const faders = document.querySelectorAll('.fade-up');
+    // Re-run fade-up observer for new items
+    const newFaders = document.querySelectorAll('.fade-up');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -479,16 +477,15 @@
         }
       });
     }, { threshold: 0.15 });
-    faders.forEach(el => observer.observe(el));
+    newFaders.forEach(el => observer.observe(el));
   }
 
-  // Filter button event listeners
+  // Filter buttons
   document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', function() {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.getAttribute('data-filter');
-      renderPortfolio(filter);
+      this.classList.add('active');
+      renderPortfolio(this.getAttribute('data-filter'));
     });
   });
 
@@ -496,7 +493,7 @@
   renderPortfolio("all");
 
   // Fade-up observer for static elements
-  const faders = document.querySelectorAll('.fade-up:not(.portfolio-item .fade-up)');
+  const staticFaders = document.querySelectorAll('.fade-up:not(.portfolio-item)');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -505,9 +502,9 @@
       }
     });
   }, { threshold: 0.15 });
-  faders.forEach(el => observer.observe(el));
+  staticFaders.forEach(el => observer.observe(el));
   window.addEventListener('load', () => {
-    faders.forEach(el => {
+    staticFaders.forEach(el => {
       if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
     });
   });
