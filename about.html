@@ -7,18 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #FFFFFF;
-      color: #1C1C1C;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #FFFFFF; color: #1C1C1C; line-height: 1.5; scroll-behavior: smooth; }
     :root {
       --yellow: #F4B400;
       --yellow-dark: #E0A800;
@@ -29,252 +19,109 @@
       --shadow-sm: 0 8px 20px rgba(0,0,0,0.03), 0 2px 4px rgba(0,0,0,0.05);
       --shadow-md: 0 20px 30px -12px rgba(0,0,0,0.1);
     }
-    h1, h2, h3 {
-      font-weight: 700;
-      line-height: 1.2;
-    }
+    h1, h2, h3 { font-weight: 700; line-height: 1.2; }
     h1 { font-size: clamp(2.2rem, 6vw, 3.8rem); }
     h2 { font-size: clamp(1.8rem, 5vw, 2.5rem); margin-bottom: 1rem; }
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    section {
-      padding: 80px 0;
-    }
-    @media (max-width: 768px) {
-      section { padding: 60px 0; }
-    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 80px 0; }
+    @media (max-width: 768px) { section { padding: 60px 0; } }
     .btn-primary {
-      display: inline-block;
-      background: var(--yellow);
-      color: var(--black);
-      font-weight: 700;
-      padding: 14px 32px;
-      border-radius: 40px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-size: 1rem;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      display: inline-block; background: var(--yellow); color: var(--black); font-weight: 700;
+      padding: 14px 32px; border-radius: 40px; text-decoration: none; transition: all 0.3s ease;
+      font-size: 1rem; border: none; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     }
-    .btn-primary:hover {
-      background: var(--yellow-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 20px -12px rgba(244,180,0,0.4);
-    }
+    .btn-primary:hover { background: var(--yellow-dark); transform: translateY(-3px); box-shadow: 0 12px 20px -12px rgba(244,180,0,0.4); }
     .btn-secondary {
-      display: inline-block;
-      background: transparent;
-      color: var(--blue);
-      font-weight: 600;
-      padding: 12px 24px;
-      border-radius: 40px;
-      text-decoration: none;
-      margin-left: 12px;
+      display: inline-block; background: transparent; color: var(--blue); font-weight: 600;
+      padding: 12px 24px; border-radius: 40px; text-decoration: none; margin-left: 12px;
     }
     .btn-secondary:hover { text-decoration: underline; }
     /* Navbar */
     .navbar {
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(8px);
-      padding: 16px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); padding: 16px 0;
+      position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--black);
-      text-decoration: none;
-    }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .logo { font-size: 1.8rem; font-weight: 800; color: var(--black); text-decoration: none; }
     .logo span { color: var(--yellow); }
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--black);
-      font-weight: 500;
-      transition: 0.2s;
-    }
+    .nav-links { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+    .nav-links a { text-decoration: none; color: var(--black); font-weight: 500; transition: 0.2s; }
     .nav-links a:hover { color: var(--yellow); }
-    .btn-nav {
-      background: var(--black);
-      color: white !important;
-      padding: 8px 20px;
-      border-radius: 30px;
-      font-weight: 600;
-    }
-    .btn-nav:hover {
-      background: var(--yellow);
-      color: var(--black) !important;
-    }
-    @media (max-width: 768px) {
-      .nav-container { flex-direction: column; }
-      .nav-links { justify-content: center; gap: 20px; }
-    }
+    .btn-nav { background: var(--black); color: white !important; padding: 8px 20px; border-radius: 30px; font-weight: 600; }
+    .btn-nav:hover { background: var(--yellow); color: var(--black) !important; }
+    @media (max-width: 768px) { .nav-container { flex-direction: column; } .nav-links { justify-content: center; gap: 20px; } }
     /* Hero with bg image */
     .hero {
-      background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%), url('https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg?auto=compress&cs=tinysrgb&w=1600');
-      background-size: cover;
-      background-position: center 30%;
-      color: white;
-      text-align: center;
+      background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 100%), url('https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg?auto=compress&cs=tinysrgb&w=1600');
+      background-size: cover; background-position: center 30%; color: white; text-align: center;
     }
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 60px 0;
-    }
+    .hero-content { max-width: 800px; margin: 0 auto; padding: 60px 0; }
     .hero h1 { margin-bottom: 20px; }
     .hero p { font-size: 1.2rem; margin-bottom: 32px; opacity: 0.95; }
     /* Stats bar */
     .stats-bar {
-      background: white;
-      border-radius: 60px;
-      box-shadow: var(--shadow-md);
-      padding: 24px 32px;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: -50px;
-      position: relative;
-      z-index: 5;
+      background: white; border-radius: 60px; box-shadow: var(--shadow-md); padding: 24px 32px;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+      margin-top: -50px; position: relative; z-index: 5;
     }
     .stat-item { text-align: center; flex: 1; }
     .stat-number { font-size: 1.9rem; font-weight: 800; color: var(--yellow); }
-    @media (max-width: 700px) {
-      .stats-bar { flex-direction: column; text-align: center; border-radius: 32px; margin-top: -30px; }
-    }
-    /* Two column */
+    @media (max-width: 700px) { .stats-bar { flex-direction: column; text-align: center; border-radius: 32px; margin-top: -30px; } }
+    /* Two column layout (for intro and logo) */
     .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
     }
-    @media (max-width: 900px) {
-      .two-col { grid-template-columns: 1fr; gap: 30px; }
-    }
+    @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; gap: 30px; text-align: center; } }
+    /* Logo section specific */
+    .logo-col { text-align: center; }
+    .brand-logo { max-width: 220px; border-radius: 20px; box-shadow: var(--shadow-sm); display: inline-block; }
+    @media (max-width: 768px) { .brand-logo { margin-bottom: 20px; } }
     /* Values grid */
     .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; margin-top: 40px;
     }
     .value-card {
-      background: white;
-      padding: 32px 24px;
-      border-radius: 28px;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease;
-      text-align: center;
-      border: 1px solid #f0f0f0;
+      background: white; padding: 32px 24px; border-radius: 28px; box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease; text-align: center; border: 1px solid #f0f0f0;
     }
-    .value-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--yellow);
-    }
-    .value-icon {
-      font-size: 2.5rem;
-      color: var(--yellow);
-      margin-bottom: 20px;
-    }
+    .value-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); border-color: var(--yellow); }
+    .value-icon { font-size: 2.5rem; color: var(--yellow); margin-bottom: 20px; }
     /* Team grid */
     .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; margin-top: 40px;
     }
     .team-card {
-      background: var(--gray-bg);
-      border-radius: 28px;
-      padding: 32px 24px;
-      text-align: center;
-      transition: transform 0.2s;
+      background: var(--gray-bg); border-radius: 28px; padding: 32px 24px; text-align: center; transition: transform 0.2s;
     }
     .team-card:hover { transform: translateY(-5px); }
-    .team-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 16px;
-      border: 3px solid var(--yellow);
+    .team-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 16px; border: 3px solid var(--yellow); }
+    /* Testimonial */
+    .testimonial-card {
+      background: white; border-radius: 32px; padding: 32px; margin-top: 40px; box-shadow: var(--shadow-sm);
+      border-left: 6px solid var(--yellow);
     }
-    /* CTA bg */
+    .stars { color: var(--yellow); margin-bottom: 16px; letter-spacing: 2px; }
+    /* CTA with bg */
     .cta-bg {
       background: linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/2251247/pexels-photo-2251247.jpeg?auto=compress&cs=tinysrgb&w=1600');
-      background-size: cover;
-      background-position: center;
-      text-align: center;
-      color: white;
+      background-size: cover; background-position: center; text-align: center; color: white;
     }
     /* Footer */
     footer {
-      background: var(--black);
-      color: #aaa;
-      padding: 48px 0 24px;
+      background: var(--black); color: #aaa; padding: 48px 0 24px;
     }
     .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 40px;
-      margin-bottom: 40px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px;
     }
-    .footer-col h4 {
-      color: white;
-      margin-bottom: 20px;
-    }
-    .footer-col a {
-      color: #ccc;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 10px;
-    }
+    .footer-col h4 { color: white; margin-bottom: 20px; }
+    .footer-col a { color: #ccc; text-decoration: none; display: block; margin-bottom: 10px; }
     .footer-col a:hover { color: var(--yellow); }
-    .social-icons i {
-      font-size: 1.4rem;
-      margin-right: 16px;
-      color: #ccc;
-    }
+    .social-icons i { font-size: 1.4rem; margin-right: 16px; color: #ccc; }
     .social-icons i:hover { color: var(--yellow); }
-    .newsletter input {
-      padding: 12px;
-      border-radius: 40px;
-      border: none;
-      width: 70%;
-      margin-right: 8px;
-    }
+    .newsletter input { padding: 12px; border-radius: 40px; border: none; width: 70%; margin-right: 8px; }
     /* Animations */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.7s ease;
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
@@ -297,19 +144,19 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container hero-content">
-      <h1>Building furniture <span style="color: #F4B400;">with pride</span> — in Lagos, for Lagos</h1>
-      <p>We’re not just a furniture brand. We’re a workshop, a team of artisans, and a promise: quality you can touch, prices you can afford.</p>
-      <a href="contact.html#booking" class="btn-primary">Meet the team →</a>
+      <h1>Crafting furniture <span style="color: #F4B400;">with pride</span> — in Lagos, for Lagos</h1>
+      <p>We're not just a furniture brand. We're a workshop of skilled artisans dedicated to quality, honesty, and local manufacturing.</p>
+      <a href="contact.html#booking" class="btn-primary">Request a quote →</a>
     </div>
   </section>
 
-  <!-- Stats / Trust Badges -->
+  <!-- Trust Stats Bar -->
   <div class="container">
     <div class="stats-bar fade-up">
       <div class="stat-item"><div class="stat-number">500+</div><div>Pieces sold</div></div>
-      <div class="stat-item"><div class="stat-number">15+</div><div>Years combined experience</div></div>
+      <div class="stat-item"><div class="stat-number">15+</div><div>Years experience</div></div>
       <div class="stat-item"><div class="stat-number">⭐ 4.8</div><div>Client rating</div></div>
-      <div class="stat-item"><div class="stat-number">100%</div><div>Locally manufactured</div></div>
+      <div class="stat-item"><div class="stat-number">100%</div><div>Lagos made</div></div>
     </div>
   </div>
 
@@ -318,13 +165,29 @@
     <div class="container two-col">
       <div class="fade-up">
         <h2>Our story — <span style="color: var(--yellow);">from a small workshop to Lagos's trusted furniture maker</span></h2>
-        <p>Handygidi started as a tiny furniture repair shop in Surulere. We saw that most “luxury” furniture in Lagos was overpriced and under-quality. So we decided to build our own.</p>
+        <p>Handygidi started as a tiny furniture repair shop in Surulere. We saw that most “luxury” furniture in Lagos was overpriced and under‑quality. So we decided to build our own.</p>
         <p>Today, we have a full production workshop in Lekki, employing skilled carpenters, upholsterers, and finishers. Every sofa, bed, and table is made here, using solid wood and premium materials. No imports. No shortcuts.</p>
         <p>We are proud to serve families, businesses, and real estate developers across Lagos – with furniture that lasts.</p>
-        <a href="services.html" class="btn-secondary">View our catalog →</a>
+        <a href="services.html" class="btn-secondary">See our services →</a>
       </div>
       <div class="fade-up">
         <img src="https://i.pinimg.com/736x/f9/f1/c4/f9f1c42ca9dab6488a43904fd612c501.jpg?auto=compress&cs=tinysrgb&w=800" alt="Workshop" style="width:100%; border-radius: 28px; box-shadow: var(--shadow-md);">
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW LOGO + BRAND SECTION (same as homepage) -->
+  <section class="logo-section">
+    <div class="container two-col">
+      <div class="logo-col fade-up">
+        <!-- Replace placeholder with actual Handygidi logo -->
+        <img class="brand-logo" src="https://via.placeholder.com/400x300/F4B400/1C1C1C?text=HANDYGIDI+LOGO" alt="Handygidi Logo">
+      </div>
+      <div class="fade-up">
+        <h2>Handygidi — <span style="color: var(--yellow);">craftsmanship you can trust</span></h2>
+        <p>Every piece of furniture that leaves our workshop carries the Handygidi promise: solid wood, precise joinery, and finishes that last. We don't believe in shortcuts. Whether it's a single custom sofa or a full office suite, we treat every order with the same attention to detail.</p>
+        <p>Our name stands for reliable, locally made furniture that serves Lagos families and businesses for years. No particle board. Just honest, handcrafted quality.</p>
+        <a href="contact.html#booking" class="btn-secondary">Request a quote →</a>
       </div>
     </div>
   </section>
@@ -385,32 +248,30 @@
     </div>
   </section>
 
-  <!-- Our Workshop / Behind the Scenes with bg image -->
-  <section class="cta-bg">
-    <div class="container" style="text-align: center;">
-      <h2 class="fade-up">See how we build</h2>
-      <p style="font-size: 1.2rem; max-width: 550px; margin: 0 auto 20px;">Follow our Instagram for workshop tours, new arrivals, and behind‑the‑scenes videos.</p>
-      <a href="https://www.instagram.com/handygidi" target="_blank" class="btn-primary" style="background: #F4B400; color: black;">👉 Follow @handygidi</a>
-      <p style="margin-top: 24px;"><i class="fab fa-facebook"></i> Also on <a href="https://www.facebook.com/Handygidi" style="color: white; text-decoration: underline;" target="_blank">Facebook</a></p>
+  <!-- Testimonials about quality -->
+  <section style="background: var(--gray-bg);">
+    <div class="container">
+      <h2 class="fade-up" style="text-align: center;">What Lagos says about us — <span style="color: var(--yellow);">real reviews</span></h2>
+      <div class="testimonial-card fade-up">
+        <div class="stars">★★★★★</div>
+        <p>“I asked Handygidi to build a custom dining table for 8. They sent samples of wood, delivered in 10 days, and the table is now the centerpiece of my home. Solid craftsmanship.”</p>
+        <p style="margin-top: 12px; font-weight: 600;">– Mrs. Obi, Lekki</p>
+      </div>
+      <div class="testimonial-card fade-up">
+        <div class="stars">★★★★★</div>
+        <p>“We ordered 15 office desks and chairs. The team was professional, delivery was seamless, and the furniture quality beats anything we saw in the market. Highly recommended.”</p>
+        <p style="margin-top: 12px; font-weight: 600;">– Olu, VI (Tech Startup)</p>
+      </div>
     </div>
   </section>
 
-  <!-- Testimonials about quality (social proof) -->
-  <section>
-    <div class="container">
-      <h2 class="fade-up" style="text-align: center;">What Lagos says about us — <span style="color: var(--yellow);">real reviews</span></h2>
-      <div style="display: grid; gap: 24px; margin-top: 40px;">
-        <div class="fade-up" style="background: white; border-radius: 28px; padding: 28px; box-shadow: var(--shadow-sm); border-left: 6px solid var(--yellow);">
-          <div class="stars">★★★★★</div>
-          <p>“I asked Handygidi to build a custom dining table for 8. They sent samples of wood, delivered in 10 days, and the table is now the centerpiece of my home. Solid craftsmanship.”</p>
-          <p style="margin-top: 12px; font-weight: 600;">– Mrs. Obi, Lekki</p>
-        </div>
-        <div class="fade-up" style="background: white; border-radius: 28px; padding: 28px; box-shadow: var(--shadow-sm); border-left: 6px solid var(--yellow);">
-          <div class="stars">★★★★★</div>
-          <p>“We ordered 15 office desks and chairs. The team was professional, delivery was seamless, and the furniture quality beats anything we saw in the market. Highly recommended.”</p>
-          <p style="margin-top: 12px; font-weight: 600;">– Olu, VI (Tech Startup)</p>
-        </div>
-      </div>
+  <!-- Instagram / Behind the Scenes -->
+  <section class="cta-bg">
+    <div class="container" style="text-align: center;">
+      <h2 class="fade-up">See how we build</h2>
+      <p style="font-size: 1.2rem; max-width: 550px; margin: 0 auto 20px;">Follow <strong>@handygidi</strong> for workshop tours, new arrivals, and behind‑the‑scenes videos.</p>
+      <a href="https://www.instagram.com/handygidi" target="_blank" class="btn-primary" style="background: #F4B400; color: black;">👉 Follow @handygidi</a>
+      <p style="margin-top: 24px;"><i class="fab fa-facebook"></i> Also on <a href="https://www.facebook.com/Handygidi" style="color: white; text-decoration: underline;" target="_blank">Facebook</a></p>
     </div>
   </section>
 
@@ -418,7 +279,7 @@
   <section>
     <div class="container" style="text-align: center;">
       <h2 class="fade-up">Ready to own furniture made just for you?</h2>
-      <p style="margin-bottom: 20px;">Tell us your idea – we’ll quote and create it.</p>
+      <p style="margin-bottom: 20px;">Tell us your idea – we'll quote and create it.</p>
       <a href="contact.html#booking" class="btn-primary">Request a free quote →</a>
     </div>
   </section>
@@ -472,9 +333,7 @@
   faders.forEach(el => observer.observe(el));
   window.addEventListener('load', () => {
     faders.forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight) {
-        el.classList.add('visible');
-      }
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
     });
   });
 </script>
