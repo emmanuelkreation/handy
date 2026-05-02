@@ -3,22 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Handygidi – Services | Custom Furniture Manufacturing Lagos</title>
+  <title>Handygidi – Furniture Manufacturing Services | Lagos</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #FFFFFF;
-      color: #1C1C1C;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #FFFFFF; color: #1C1C1C; line-height: 1.5; scroll-behavior: smooth; }
     :root {
       --yellow: #F4B400;
       --yellow-dark: #E0A800;
@@ -29,260 +19,119 @@
       --shadow-sm: 0 8px 20px rgba(0,0,0,0.03), 0 2px 4px rgba(0,0,0,0.05);
       --shadow-md: 0 20px 30px -12px rgba(0,0,0,0.1);
     }
-    h1, h2, h3 {
-      font-weight: 700;
-      line-height: 1.2;
-    }
+    h1, h2, h3 { font-weight: 700; line-height: 1.2; }
     h1 { font-size: clamp(2.2rem, 6vw, 3.8rem); }
     h2 { font-size: clamp(1.8rem, 5vw, 2.5rem); margin-bottom: 1rem; }
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    section {
-      padding: 80px 0;
-    }
-    @media (max-width: 768px) {
-      section { padding: 60px 0; }
-    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 80px 0; }
+    @media (max-width: 768px) { section { padding: 60px 0; } }
     .btn-primary {
-      display: inline-block;
-      background: var(--yellow);
-      color: var(--black);
-      font-weight: 700;
-      padding: 14px 32px;
-      border-radius: 40px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-size: 1rem;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      display: inline-block; background: var(--yellow); color: var(--black); font-weight: 700;
+      padding: 14px 32px; border-radius: 40px; text-decoration: none; transition: all 0.3s ease;
+      font-size: 1rem; border: none; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     }
-    .btn-primary:hover {
-      background: var(--yellow-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 20px -12px rgba(244,180,0,0.4);
-    }
+    .btn-primary:hover { background: var(--yellow-dark); transform: translateY(-3px); box-shadow: 0 12px 20px -12px rgba(244,180,0,0.4); }
     .btn-secondary {
-      display: inline-block;
-      background: transparent;
-      color: var(--blue);
-      font-weight: 600;
-      padding: 12px 24px;
-      border-radius: 40px;
-      text-decoration: none;
-      margin-left: 12px;
+      display: inline-block; background: transparent; color: var(--blue); font-weight: 600;
+      padding: 12px 24px; border-radius: 40px; text-decoration: none; margin-left: 12px;
     }
     .btn-secondary:hover { text-decoration: underline; }
     /* Navbar */
     .navbar {
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(8px);
-      padding: 16px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); padding: 16px 0;
+      position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--black);
-      text-decoration: none;
-    }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .logo { font-size: 1.8rem; font-weight: 800; color: var(--black); text-decoration: none; }
     .logo span { color: var(--yellow); }
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--black);
-      font-weight: 500;
-      transition: 0.2s;
-    }
+    .nav-links { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+    .nav-links a { text-decoration: none; color: var(--black); font-weight: 500; transition: 0.2s; }
     .nav-links a:hover { color: var(--yellow); }
-    .btn-nav {
-      background: var(--black);
-      color: white !important;
-      padding: 8px 20px;
-      border-radius: 30px;
-      font-weight: 600;
-    }
-    .btn-nav:hover {
-      background: var(--yellow);
-      color: var(--black) !important;
-    }
-    @media (max-width: 768px) {
-      .nav-container { flex-direction: column; }
-      .nav-links { justify-content: center; gap: 20px; }
-    }
+    .btn-nav { background: var(--black); color: white !important; padding: 8px 20px; border-radius: 30px; font-weight: 600; }
+    .btn-nav:hover { background: var(--yellow); color: var(--black) !important; }
+    @media (max-width: 768px) { .nav-container { flex-direction: column; } .nav-links { justify-content: center; gap: 20px; } }
     /* Hero with bg image */
     .hero {
       background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 100%), url('https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=1600');
-      background-size: cover;
-      background-position: center 30%;
-      color: white;
-      text-align: center;
+      background-size: cover; background-position: center 30%; color: white; text-align: center;
     }
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 60px 0;
-    }
+    .hero-content { max-width: 800px; margin: 0 auto; padding: 60px 0; }
     .hero h1 { margin-bottom: 20px; }
     .hero p { font-size: 1.2rem; margin-bottom: 32px; opacity: 0.95; }
-    /* Services grid */
+    /* Stats bar */
+    .stats-bar {
+      background: white; border-radius: 60px; box-shadow: var(--shadow-md); padding: 24px 32px;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+      margin-top: -50px; position: relative; z-index: 5;
+    }
+    .stat-item { text-align: center; flex: 1; }
+    .stat-number { font-size: 1.9rem; font-weight: 800; color: var(--yellow); }
+    @media (max-width: 700px) { .stats-bar { flex-direction: column; text-align: center; border-radius: 32px; margin-top: -30px; } }
+    /* Two column layout (for intro and logo) */
+    .two-col {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+    }
+    @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; gap: 30px; text-align: center; } }
+    /* Services grid (4 cards) */
     .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px;
     }
     .service-card {
-      background: white;
-      padding: 32px 24px;
-      border-radius: 28px;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease;
-      border: 1px solid #f0f0f0;
-      text-align: center;
+      background: white; padding: 32px 24px; border-radius: 28px; box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease; border: 1px solid #f0f0f0; text-align: center;
     }
-    .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--yellow);
-    }
-    .service-icon {
-      font-size: 2.8rem;
-      color: var(--yellow);
-      margin-bottom: 20px;
-    }
-    /* Steps (process) */
+    .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); border-color: var(--yellow); }
+    .service-icon { font-size: 2.8rem; color: var(--yellow); margin-bottom: 20px; }
+    /* Steps */
     .steps {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 40px;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; margin-top: 40px;
     }
     .step {
-      flex: 1;
-      text-align: center;
-      background: var(--gray-bg);
-      padding: 30px 20px;
-      border-radius: 28px;
+      flex: 1; text-align: center; background: var(--gray-bg); padding: 30px 20px; border-radius: 28px;
     }
     .step-number {
-      background: var(--yellow);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 1.5rem;
-      margin-bottom: 20px;
+      background: var(--yellow); width: 50px; height: 50px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.5rem; margin-bottom: 20px;
     }
     /* Pricing packages */
     .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px;
     }
     .pricing-card {
-      background: white;
-      border-radius: 28px;
-      padding: 32px;
-      box-shadow: var(--shadow-sm);
-      text-align: center;
-      border: 1px solid #eee;
-      transition: transform 0.2s;
+      background: white; border-radius: 28px; padding: 32px; box-shadow: var(--shadow-sm);
+      text-align: center; border: 1px solid #eee; transition: transform 0.2s;
     }
-    .pricing-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--yellow);
+    .pricing-card:hover { transform: translateY(-5px); border-color: var(--yellow); }
+    .price { font-size: 2rem; font-weight: 800; color: var(--yellow); margin: 20px 0; }
+    .pricing-features { list-style: none; margin: 20px 0; }
+    .pricing-features li { margin-bottom: 12px; }
+    /* Testimonial */
+    .testimonial-card {
+      background: white; border-radius: 32px; padding: 32px; margin-top: 40px; box-shadow: var(--shadow-sm);
+      border-left: 6px solid var(--yellow);
     }
-    .price {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--yellow);
-      margin: 20px 0;
-    }
-    .pricing-features {
-      list-style: none;
-      margin: 20px 0;
-    }
-    .pricing-features li {
-      margin-bottom: 12px;
-    }
-    /* CTA bg */
+    .stars { color: var(--yellow); margin-bottom: 16px; letter-spacing: 2px; }
+    /* CTA with bg */
     .cta-bg {
       background: linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/2251247/pexels-photo-2251247.jpeg?auto=compress&cs=tinysrgb&w=1600');
-      background-size: cover;
-      background-position: center;
-      text-align: center;
-      color: white;
+      background-size: cover; background-position: center; text-align: center; color: white;
     }
     /* Footer */
     footer {
-      background: var(--black);
-      color: #aaa;
-      padding: 48px 0 24px;
+      background: var(--black); color: #aaa; padding: 48px 0 24px;
     }
     .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 40px;
-      margin-bottom: 40px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px;
     }
-    .footer-col h4 {
-      color: white;
-      margin-bottom: 20px;
-    }
-    .footer-col a {
-      color: #ccc;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 10px;
-    }
+    .footer-col h4 { color: white; margin-bottom: 20px; }
+    .footer-col a { color: #ccc; text-decoration: none; display: block; margin-bottom: 10px; }
     .footer-col a:hover { color: var(--yellow); }
-    .social-icons i {
-      font-size: 1.4rem;
-      margin-right: 16px;
-      color: #ccc;
-    }
+    .social-icons i { font-size: 1.4rem; margin-right: 16px; color: #ccc; }
     .social-icons i:hover { color: var(--yellow); }
-    .newsletter input {
-      padding: 12px;
-      border-radius: 40px;
-      border: none;
-      width: 70%;
-      margin-right: 8px;
-    }
+    .newsletter input { padding: 12px; border-radius: 40px; border: none; width: 70%; margin-right: 8px; }
     /* Animations */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.7s ease;
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
@@ -305,124 +154,152 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container hero-content">
-      <h1>Custom furniture, bulk orders, restoration — <span style="color: #F4B400;">we make it all</span></h1>
-      <p>Handygidi offers end-to-end furniture manufacturing services in Lagos. From one-off custom pieces to 100+ units for offices and hotels.</p>
-      <a href="contact.html#booking" class="btn-primary">Get a free quote →</a>
+      <h1>We don't just sell furniture — <span style="color: #F4B400;">we manufacture it for you</span></h1>
+      <p>Custom builds, bulk orders, restoration, upholstery. Everything made in Lagos, with solid wood and premium materials.</p>
+      <div class="hero-buttons">
+        <a href="contact.html#booking" class="btn-primary">Get a free quote →</a>
+        <a href="#services" class="btn-secondary">See our services</a>
+      </div>
     </div>
   </section>
 
-  <!-- Service Offerings -->
+  <!-- Trust Bar -->
+  <div class="container">
+    <div class="stats-bar fade-up">
+      <div class="stat-item"><div class="stat-number">500+</div><div>Projects completed</div></div>
+      <div class="stat-item"><div class="stat-number">15+</div><div>Years experience</div></div>
+      <div class="stat-item"><div class="stat-number">⭐ 4.8</div><div>Client rating</div></div>
+      <div class="stat-item"><div class="stat-number">100%</div><div>Lagos made</div></div>
+    </div>
+  </div>
+
+  <!-- Intro / Philosophy -->
   <section>
+    <div class="container two-col">
+      <div class="fade-up">
+        <h2>Your vision, <span style="color: var(--yellow);">crafted by hand</span></h2>
+        <p>At Handygidi, we don’t rely on mass‑produced imports. Every sofa, bed, table, and office desk is designed and built in our Lekki workshop. You get full control over materials, dimensions, and finish – and you pay only for what you need.</p>
+        <p>Whether it’s a single statement piece or 100 units for a hotel, we treat every order with the same care and precision.</p>
+      </div>
+      <div class="fade-up">
+        <img src="https://images.pexels.com/photos/1006052/pexels-photo-1006052.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Carpenter at work" style="width:100%; border-radius: 28px; box-shadow: var(--shadow-md);">
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Manufacturing Services (4 core services) -->
+  <section id="services" style="background: var(--gray-bg);">
     <div class="container">
       <h2 class="fade-up">What we offer — <span style="color: var(--yellow);">manufacturing services</span></h2>
       <div class="services-grid">
         <div class="service-card fade-up">
           <div class="service-icon"><i class="fas fa-pencil-ruler"></i></div>
           <h3>Custom Furniture</h3>
-          <p>One-of-a-kind pieces based on your sketch, photo, or idea. Sofas, beds, tables, cabinets – any size, any style.</p>
-          <a href="contact.html#booking" class="btn-secondary">Get quote →</a>
+          <p>One‑of‑a‑kind sofas, beds, tables, cabinets – built to your exact size, style, and material. Send a sketch or photo.</p>
+          <a href="contact.html#booking" class="btn-secondary">Request quote →</a>
         </div>
         <div class="service-card fade-up">
           <div class="service-icon"><i class="fas fa-industry"></i></div>
           <h3>Bulk Production</h3>
-          <p>For offices, hotels, schools, and real estate developers. Consistent quality, fast turnaround, volume discounts.</p>
-          <a href="contact.html#booking" class="btn-secondary">Get quote →</a>
+          <p>For offices, hotels, schools, and real estate developers. Consistent quality, volume discounts, fast turnaround.</p>
+          <a href="contact.html#booking" class="btn-secondary">Request quote →</a>
         </div>
         <div class="service-card fade-up">
           <div class="service-icon"><i class="fas fa-tools"></i></div>
           <h3>Restoration & Repair</h3>
-          <p>Bring your old furniture back to life. We repair, reupholster, refinish, and strengthen wooden frames.</p>
-          <a href="contact.html#booking" class="btn-secondary">Get quote →</a>
+          <p>Bring old furniture back to life – wood repair, reupholstery, refinishing, and structural strengthening.</p>
+          <a href="contact.html#booking" class="btn-secondary">Request quote →</a>
         </div>
         <div class="service-card fade-up">
           <div class="service-icon"><i class="fas fa-tshirt"></i></div>
-          <h3>Upholstery Services</h3>
-          <p>Re-foam, re-cover, or re-design your sofas and chairs. Wide fabric selection available.</p>
-          <a href="contact.html#booking" class="btn-secondary">Get quote →</a>
-        </div>
-        <div class="service-card fade-up">
-          <div class="service-icon"><i class="fas fa-truck"></i></div>
-          <h3>Delivery & Installation</h3>
-          <p>We safely deliver and set up furniture in your home or office across Lagos. No hassle.</p>
-          <a href="contact.html#booking" class="btn-secondary">Get quote →</a>
+          <h3>Re‑upholstery</h3>
+          <p>Change the look and feel of your sofas and chairs. Wide fabric selection, expert stitching.</p>
+          <a href="contact.html#booking" class="btn-secondary">Request quote →</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- How It Works (Process) -->
-  <section style="background: var(--gray-bg);">
+  <section>
     <div class="container">
-      <h2 class="fade-up">Our manufacturing process — <span style="color: var(--yellow);">simple and transparent</span></h2>
+      <h2 class="fade-up">How we work — <span style="color: var(--yellow);">simple, transparent, reliable</span></h2>
       <div class="steps">
-        <div class="step fade-up"><div class="step-number">1</div><h3>Consultation</h3><p>You share your needs, budget, and timeline – free of charge.</p></div>
-        <div class="step fade-up"><div class="step-number">2</div><h3>Design & Material Selection</h3><p>We create a sketch or 3D view, then help you choose wood, fabric, finish.</p></div>
-        <div class="step fade-up"><div class="step-number">3</div><h3>Production</h3><p>Our carpenters and upholsterers build your piece in our Lagos workshop.</p></div>
-        <div class="step fade-up"><div class="step-number">4</div><h3>Delivery & Follow-up</h3><p>We deliver, install, and check in to ensure you're happy.</p></div>
+        <div class="step fade-up"><div class="step-number">1</div><h3>Consultation</h3><p>Free chat about your needs, budget, and timeline – no pressure.</p></div>
+        <div class="step fade-up"><div class="step-number">2</div><h3>Design & material selection</h3><p>We create a plan, show wood/fabric samples, and lock in pricing.</p></div>
+        <div class="step fade-up"><div class="step-number">3</div><h3>Production</h3><p>Our artisans build your piece in our Lekki workshop.</p></div>
+        <div class="step fade-up"><div class="step-number">4</div><h3>Delivery & follow‑up</h3><p>We deliver, install, and check that you're 100% satisfied.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Pricing Packages (example) -->
-  <section>
+  <!-- Pricing Packages (transparent ranges) -->
+  <section style="background: var(--gray-bg);">
     <div class="container">
-      <h2 class="fade-up">Popular packages — <span style="color: var(--yellow);">transparent pricing</span></h2>
+      <h2 class="fade-up">Investment — <span style="color: var(--yellow);">packages to fit your budget</span></h2>
       <div class="pricing-grid">
         <div class="pricing-card fade-up">
           <h3>Custom Single Piece</h3>
-          <div class="price">₦150k – ₦400k</div>
+          <div class="price">₦150k – ₦450k</div>
           <ul class="pricing-features">
-            <li>✓ Any design (sofa, bed, table, cabinet)</li>
-            <li>✓ Solid wood choice</li>
-            <li>✓ Fabric selection</li>
-            <li>✓ Free delivery within Lekki/VI</li>
+            <li>✓ Sofa, bed, dining table, or cabinet</li>
+            <li>✓ Solid wood + premium fabric</li>
+            <li>✓ Free delivery (Lekki/VI/Ikeja)</li>
           </ul>
-          <a href="contact.html#booking" class="btn-primary">Request quote</a>
+          <a href="contact.html#booking" class="btn-primary">Get quote</a>
         </div>
         <div class="pricing-card fade-up">
           <h3>Office Bulk Order</h3>
           <div class="price">Quote based</div>
           <ul class="pricing-features">
-            <li>✓ 10+ units (desks, chairs, shelves)</li>
-            <li>✓ Custom dimensions & branding</li>
+            <li>✓ 10+ desks, chairs, shelves</li>
             <li>✓ Volume discount</li>
             <li>✓ Installation included</li>
           </ul>
-          <a href="contact.html#booking" class="btn-primary">Request quote</a>
+          <a href="contact.html#booking" class="btn-primary">Get quote</a>
         </div>
         <div class="pricing-card fade-up">
-          <h3>Restoration Service</h3>
+          <h3>Restoration</h3>
           <div class="price">From ₦50k</div>
           <ul class="pricing-features">
-            <li>✓ Assessment & quote first</li>
-            <li>✓ Reupholstery, wood repair, polishing</li>
+            <li>✓ Assessment + quote first</li>
+            <li>✓ Wood repair, reupholstery, polishing</li>
             <li>✓ Pickup & delivery available</li>
           </ul>
-          <a href="contact.html#booking" class="btn-primary">Request quote</a>
+          <a href="contact.html#booking" class="btn-primary">Get quote</a>
         </div>
       </div>
-      <p style="text-align: center; margin-top: 30px; font-size: 0.9rem;">Prices are estimates. Final quote depends on materials, size, and complexity.</p>
+      <p style="text-align: center; margin-top: 30px; font-size: 0.9rem;">All prices exclude VAT. Final quote depends on materials, size, and complexity.</p>
     </div>
   </section>
 
   <!-- Testimonial (service related) -->
-  <section style="background: var(--gray-bg);">
+  <section>
     <div class="container">
-      <div class="fade-up" style="max-width: 700px; margin: 0 auto; text-align: center;">
-        <div class="stars" style="color: var(--yellow); font-size: 1.5rem;">★★★★★</div>
-        <p style="font-size: 1.1rem; font-style: italic;">“Handygidi produced 50 custom office desks for our new HQ. Quality control was excellent, and they delivered two weeks early. Their bulk pricing beat every competitor.”</p>
+      <div class="testimonial-card fade-up">
+        <div class="stars">★★★★★</div>
+        <p>“Handygidi manufactured 40 custom office desks for our new headquarters. The quality control was excellent, and they delivered two weeks early. Their bulk pricing beat every competitor.”</p>
         <p style="margin-top: 16px; font-weight: 600;">– Operations Director, Lagos Tech Park</p>
       </div>
     </div>
   </section>
 
-  <!-- Final CTA -->
+  <!-- Instagram / Social Proof Section with bg image -->
   <section class="cta-bg">
     <div class="container" style="text-align: center;">
-      <h2 class="fade-up">Ready to bring your furniture idea to life?</h2>
-      <p style="font-size: 1.2rem; max-width: 550px; margin: 0 auto 20px;">Tell us what you need – we'll give you a free, no‑obligation quote within 24 hours.</p>
-      <a href="contact.html#booking" class="btn-primary" style="background: #F4B400; color: black;">👉 Request free quote</a>
-      <p style="margin-top: 24px;"><i class="fab fa-whatsapp"></i> Or WhatsApp us: +234 901 234 5678</p>
+      <h2 class="fade-up">See real projects on Instagram</h2>
+      <p style="font-size: 1.2rem; max-width: 550px; margin: 0 auto 20px;">Follow <strong>@handygidi</strong> for workshop videos, finished pieces, and customer photos.</p>
+      <a href="https://www.instagram.com/handygidi" target="_blank" class="btn-primary" style="background: #F4B400; color: black;">👉 Follow @handygidi</a>
+      <p style="margin-top: 24px;"><i class="fab fa-facebook"></i> Also on <a href="https://www.facebook.com/Handygidi" style="color: white; text-decoration: underline;" target="_blank">Facebook</a></p>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section>
+    <div class="container" style="text-align: center;">
+      <h2 class="fade-up">Ready to start your project?</h2>
+      <p style="margin-bottom: 20px;">Tell us what you need – a custom piece, bulk order, or restoration. Free quote within 24 hours.</p>
+      <a href="contact.html#booking" class="btn-primary">Request a free quote →</a>
     </div>
   </section>
 </main>
@@ -471,11 +348,13 @@
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.15, rootMargin: "0px 0px -20px 0px" });
   faders.forEach(el => observer.observe(el));
   window.addEventListener('load', () => {
     faders.forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        el.classList.add('visible');
+      }
     });
   });
 </script>
