@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Handygidi – Interior Design & Furniture Services | Lagos</title>
+  <title>Handygidi – Services | Custom Furniture Manufacturing Lagos</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -130,7 +130,7 @@
     }
     /* Hero with bg image */
     .hero {
-      background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 100%), url('https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1600');
+      background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 100%), url('https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=1600');
       background-size: cover;
       background-position: center 30%;
       color: white;
@@ -146,7 +146,7 @@
     /* Services grid */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
       margin-top: 40px;
     }
@@ -169,11 +169,32 @@
       color: var(--yellow);
       margin-bottom: 20px;
     }
-    .service-price {
-      font-weight: 700;
-      color: var(--yellow);
-      margin: 15px 0 10px;
-      font-size: 1.2rem;
+    /* Steps (process) */
+    .steps {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .step {
+      flex: 1;
+      text-align: center;
+      background: var(--gray-bg);
+      padding: 30px 20px;
+      border-radius: 28px;
+    }
+    .step-number {
+      background: var(--yellow);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
     }
     /* Pricing packages */
     .pricing-grid {
@@ -208,34 +229,7 @@
     .pricing-features li {
       margin-bottom: 12px;
     }
-    /* How it works steps */
-    .steps {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 40px;
-    }
-    .step {
-      flex: 1;
-      text-align: center;
-      background: var(--gray-bg);
-      padding: 30px 20px;
-      border-radius: 28px;
-    }
-    .step-number {
-      background: var(--yellow);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-    }
-    /* CTA with bg image */
+    /* CTA bg */
     .cta-bg {
       background: linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/2251247/pexels-photo-2251247.jpeg?auto=compress&cs=tinysrgb&w=1600');
       background-size: cover;
@@ -302,7 +296,7 @@
       <a href="portfolio.html">Portfolio</a>
       <a href="services.html">Services</a>
       <a href="contact.html">Contact</a>
-      <a href="contact.html#booking" class="btn-nav">Book consult</a>
+      <a href="contact.html#booking" class="btn-nav">Request quote</a>
     </div>
   </div>
 </nav>
@@ -311,136 +305,124 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container hero-content">
-      <h1>Design services that <span style="color: #F4B400;">fit your life</span> — and your budget</h1>
-      <p>From full home makeovers to furniture sourcing, we offer flexible, transparent packages. No hidden fees, just beautiful results.</p>
-      <a href="contact.html#booking" class="btn-primary">Book free consultation →</a>
+      <h1>Custom furniture, bulk orders, restoration — <span style="color: #F4B400;">we make it all</span></h1>
+      <p>Handygidi offers end-to-end furniture manufacturing services in Lagos. From one-off custom pieces to 100+ units for offices and hotels.</p>
+      <a href="contact.html#booking" class="btn-primary">Get a free quote →</a>
     </div>
   </section>
 
-  <!-- Main Service Offerings -->
+  <!-- Service Offerings -->
   <section>
     <div class="container">
-      <h2 class="fade-up">What we offer — <span style="color: var(--yellow);">tailored to you</span></h2>
+      <h2 class="fade-up">What we offer — <span style="color: var(--yellow);">manufacturing services</span></h2>
       <div class="services-grid">
         <div class="service-card fade-up">
-          <div class="service-icon"><i class="fas fa-home"></i></div>
-          <h3>Residential Interior Design</h3>
-          <p>Full home design – from concept to completion. We create cohesive, stunning spaces that reflect your personality.</p>
-          <div class="service-price">From ₦350,000</div>
-          <a href="contact.html#booking" class="btn-secondary">Enquire →</a>
+          <div class="service-icon"><i class="fas fa-pencil-ruler"></i></div>
+          <h3>Custom Furniture</h3>
+          <p>One-of-a-kind pieces based on your sketch, photo, or idea. Sofas, beds, tables, cabinets – any size, any style.</p>
+          <a href="contact.html#booking" class="btn-secondary">Get quote →</a>
         </div>
         <div class="service-card fade-up">
-          <div class="service-icon"><i class="fas fa-building"></i></div>
-          <h3>Office & Commercial Design</h3>
-          <p>Boost productivity and impress clients with professional, inspiring workspaces.</p>
-          <div class="service-price">From ₦450,000</div>
-          <a href="contact.html#booking" class="btn-secondary">Enquire →</a>
+          <div class="service-icon"><i class="fas fa-industry"></i></div>
+          <h3>Bulk Production</h3>
+          <p>For offices, hotels, schools, and real estate developers. Consistent quality, fast turnaround, volume discounts.</p>
+          <a href="contact.html#booking" class="btn-secondary">Get quote →</a>
         </div>
         <div class="service-card fade-up">
-          <div class="service-icon"><i class="fas fa-couch"></i></div>
-          <h3>Furniture Sourcing & Styling</h3>
-          <p>We find the perfect pieces – from sofas to lighting – and style them to perfection.</p>
-          <div class="service-price">From ₦150,000</div>
-          <a href="contact.html#booking" class="btn-secondary">Enquire →</a>
+          <div class="service-icon"><i class="fas fa-tools"></i></div>
+          <h3>Restoration & Repair</h3>
+          <p>Bring your old furniture back to life. We repair, reupholster, refinish, and strengthen wooden frames.</p>
+          <a href="contact.html#booking" class="btn-secondary">Get quote →</a>
         </div>
         <div class="service-card fade-up">
-          <div class="service-icon"><i class="fas fa-drafting-compass"></i></div>
-          <h3>Space Planning & Layout</h3>
-          <p>Maximize every square foot. Awkward layouts become functional art.</p>
-          <div class="service-price">From ₦120,000</div>
-          <a href="contact.html#booking" class="btn-secondary">Enquire →</a>
+          <div class="service-icon"><i class="fas fa-tshirt"></i></div>
+          <h3>Upholstery Services</h3>
+          <p>Re-foam, re-cover, or re-design your sofas and chairs. Wide fabric selection available.</p>
+          <a href="contact.html#booking" class="btn-secondary">Get quote →</a>
         </div>
         <div class="service-card fade-up">
-          <div class="service-icon"><i class="fas fa-paint-roller"></i></div>
-          <h3>Renovation Consulting</h3>
-          <p>Guidance on materials, colors, lighting, and contractors – without the stress.</p>
-          <div class="service-price">From ₦80,000</div>
-          <a href="contact.html#booking" class="btn-secondary">Enquire →</a>
-        </div>
-        <div class="service-card fade-up">
-          <div class="service-icon"><i class="fas fa-hand-sparkles"></i></div>
-          <h3>Virtual Design</h3>
-          <p>Remote mood boards, 3D visuals, and shopping lists – perfect for DIYers.</p>
-          <div class="service-price">From ₦100,000</div>
-          <a href="contact.html#booking" class="btn-secondary">Enquire →</a>
+          <div class="service-icon"><i class="fas fa-truck"></i></div>
+          <h3>Delivery & Installation</h3>
+          <p>We safely deliver and set up furniture in your home or office across Lagos. No hassle.</p>
+          <a href="contact.html#booking" class="btn-secondary">Get quote →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- How It Works -->
+  <!-- How It Works (Process) -->
   <section style="background: var(--gray-bg);">
     <div class="container">
-      <h2 class="fade-up">How it works — <span style="color: var(--yellow);">simple, transparent, exciting</span></h2>
+      <h2 class="fade-up">Our manufacturing process — <span style="color: var(--yellow);">simple and transparent</span></h2>
       <div class="steps">
-        <div class="step fade-up"><div class="step-number">1</div><h3>Consultation</h3><p>Free, no‑pressure chat about your needs, style, and budget.</p></div>
-        <div class="step fade-up"><div class="step-number">2</div><h3>Design Proposal</h3><p>Mood boards, 3D visuals, itemized quote – you approve.</p></div>
-        <div class="step fade-up"><div class="step-number">3</div><h3>Sourcing & Execution</h3><p>We handle ordering, delivery, installation, and styling.</p></div>
-        <div class="step fade-up"><div class="step-number">4</div><h3>Reveal</h3><p>Walk into your transformed space. Fall in love again.</p></div>
+        <div class="step fade-up"><div class="step-number">1</div><h3>Consultation</h3><p>You share your needs, budget, and timeline – free of charge.</p></div>
+        <div class="step fade-up"><div class="step-number">2</div><h3>Design & Material Selection</h3><p>We create a sketch or 3D view, then help you choose wood, fabric, finish.</p></div>
+        <div class="step fade-up"><div class="step-number">3</div><h3>Production</h3><p>Our carpenters and upholsterers build your piece in our Lagos workshop.</p></div>
+        <div class="step fade-up"><div class="step-number">4</div><h3>Delivery & Follow-up</h3><p>We deliver, install, and check in to ensure you're happy.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Pricing Packages (clear options) -->
+  <!-- Pricing Packages (example) -->
   <section>
     <div class="container">
-      <h2 class="fade-up">Choose a package — <span style="color: var(--yellow);">or build your own</span></h2>
+      <h2 class="fade-up">Popular packages — <span style="color: var(--yellow);">transparent pricing</span></h2>
       <div class="pricing-grid">
         <div class="pricing-card fade-up">
-          <h3>Essential Styling</h3>
-          <div class="price">₦150k – ₦250k</div>
+          <h3>Custom Single Piece</h3>
+          <div class="price">₦150k – ₦400k</div>
           <ul class="pricing-features">
-            <li>✓ 1‑room styling</li>
-            <li>✓ Furniture sourcing (up to 5 pieces)</li>
-            <li>✓ Accessories & layout</li>
-            <li>✓ Virtual delivery</li>
+            <li>✓ Any design (sofa, bed, table, cabinet)</li>
+            <li>✓ Solid wood choice</li>
+            <li>✓ Fabric selection</li>
+            <li>✓ Free delivery within Lekki/VI</li>
           </ul>
-          <a href="contact.html#booking" class="btn-primary">Get quote</a>
+          <a href="contact.html#booking" class="btn-primary">Request quote</a>
         </div>
         <div class="pricing-card fade-up">
-          <h3>Premium Home</h3>
-          <div class="price">₦350k – ₦650k</div>
+          <h3>Office Bulk Order</h3>
+          <div class="price">Quote based</div>
           <ul class="pricing-features">
-            <li>✓ Full apartment (up to 3 rooms)</li>
-            <li>✓ Custom furniture & lighting</li>
-            <li>✓ Project management</li>
-            <li>✓ On‑site styling</li>
+            <li>✓ 10+ units (desks, chairs, shelves)</li>
+            <li>✓ Custom dimensions & branding</li>
+            <li>✓ Volume discount</li>
+            <li>✓ Installation included</li>
           </ul>
-          <a href="contact.html#booking" class="btn-primary">Get quote</a>
+          <a href="contact.html#booking" class="btn-primary">Request quote</a>
         </div>
         <div class="pricing-card fade-up">
-          <h3>Luxury Full Service</h3>
-          <div class="price">₦700k+</div>
+          <h3>Restoration Service</h3>
+          <div class="price">From ₦50k</div>
           <ul class="pricing-features">
-            <li>✓ Whole home / office</li>
-            <li>✓ Renovation support</li>
-            <li>✓ Premium materials & custom builds</li>
-            <li>✓ White‑glove installation</li>
+            <li>✓ Assessment & quote first</li>
+            <li>✓ Reupholstery, wood repair, polishing</li>
+            <li>✓ Pickup & delivery available</li>
           </ul>
-          <a href="contact.html#booking" class="btn-primary">Get quote</a>
+          <a href="contact.html#booking" class="btn-primary">Request quote</a>
         </div>
       </div>
-      <p style="text-align: center; margin-top: 30px; font-size: 0.9rem;">All prices exclude VAT and are estimates. Final quote after consultation.</p>
+      <p style="text-align: center; margin-top: 30px; font-size: 0.9rem;">Prices are estimates. Final quote depends on materials, size, and complexity.</p>
     </div>
   </section>
 
-  <!-- Testimonial Snippet -->
+  <!-- Testimonial (service related) -->
   <section style="background: var(--gray-bg);">
     <div class="container">
       <div class="fade-up" style="max-width: 700px; margin: 0 auto; text-align: center;">
         <div class="stars" style="color: var(--yellow); font-size: 1.5rem;">★★★★★</div>
-        <p style="font-size: 1.1rem; font-style: italic;">“Handygidi designed our entire 3‑bedroom apartment. The process was smooth, they respected our budget, and the result is stunning. Worth every naira.”</p>
-        <p style="margin-top: 16px; font-weight: 600;">– Mrs. Adenike, Lekki</p>
+        <p style="font-size: 1.1rem; font-style: italic;">“Handygidi produced 50 custom office desks for our new HQ. Quality control was excellent, and they delivered two weeks early. Their bulk pricing beat every competitor.”</p>
+        <p style="margin-top: 16px; font-weight: 600;">– Operations Director, Lagos Tech Park</p>
       </div>
     </div>
   </section>
 
-  <!-- CTA to Book Consultation -->
+  <!-- Final CTA -->
   <section class="cta-bg">
     <div class="container" style="text-align: center;">
-      <h2 class="fade-up">Not sure which service fits?</h2>
-      <p style="font-size: 1.2rem; max-width: 550px; margin: 0 auto 20px;">Book a free 20‑min chat. We’ll listen, advise, and give you a transparent quote – no pressure.</p>
-      <a href="contact.html#booking" class="btn-primary" style="background: #F4B400; color: black;">👉 Book free consultation</a>
+      <h2 class="fade-up">Ready to bring your furniture idea to life?</h2>
+      <p style="font-size: 1.2rem; max-width: 550px; margin: 0 auto 20px;">Tell us what you need – we'll give you a free, no‑obligation quote within 24 hours.</p>
+      <a href="contact.html#booking" class="btn-primary" style="background: #F4B400; color: black;">👉 Request free quote</a>
+      <p style="margin-top: 24px;"><i class="fab fa-whatsapp"></i> Or WhatsApp us: +234 901 234 5678</p>
     </div>
   </section>
 </main>
@@ -450,9 +432,10 @@
   <div class="container footer-grid">
     <div class="footer-col">
       <h4>Handygidi</h4>
-      <p>Premium interior design & furniture – Lagos wide. We make spaces you’ll love.</p>
+      <p>Lagos's trusted furniture manufacturer. Quality, durability, and style – made locally.</p>
       <div class="social-icons" style="margin-top: 16px;">
-        <i class="fab fa-instagram"></i> <i class="fab fa-facebook"></i> <i class="fab fa-twitter"></i>
+        <a href="https://www.instagram.com/handygidi" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/Handygidi" target="_blank"><i class="fab fa-facebook"></i></a>
       </div>
     </div>
     <div class="footer-col">
@@ -464,24 +447,22 @@
       <a href="contact.html">Contact</a>
     </div>
     <div class="footer-col">
-      <h4>Legal</h4>
-      <a href="#">Privacy policy</a>
-      <a href="#">Terms of service</a>
-      <a href="#">Refund policy</a>
+      <h4>Social Media</h4>
+      <a href="https://www.instagram.com/handygidi" target="_blank">Instagram: @handygidi</a>
+      <a href="https://www.facebook.com/Handygidi" target="_blank">Facebook Page</a>
     </div>
     <div class="footer-col newsletter">
-      <h4>Get design ideas</h4>
+      <h4>Get updates</h4>
       <input type="email" placeholder="Your email">
       <button class="btn-primary" style="margin-top: 10px;">Subscribe</button>
     </div>
   </div>
   <div class="container" style="text-align: center; border-top: 1px solid #333; padding-top: 24px;">
-    <p>© 2025 Handygidi – Style without stress. All rights reserved.</p>
+    <p>© 2025 Handygidi – Quality Furniture, Lagos. All rights reserved.</p>
   </div>
 </footer>
 
 <script>
-  // Fade-up observer
   const faders = document.querySelectorAll('.fade-up');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
