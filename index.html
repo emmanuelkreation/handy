@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Handygidi – Interior Design & Furniture | Lagos</title>
+  <title>Handygidi – Premium Furniture Manufacturer in Lagos</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -56,6 +56,8 @@
       text-decoration: none;
       transition: all 0.3s ease;
       font-size: 1rem;
+      border: none;
+      cursor: pointer;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     }
     .btn-primary:hover {
@@ -128,23 +130,19 @@
     }
     /* Hero with bg image */
     .hero {
-      background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 100%), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+      background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 100%), url('https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg?auto=compress&cs=tinysrgb&w=1600');
       background-size: cover;
-      background-position: center 40%;
+      background-position: center 30%;
       color: white;
+      text-align: center;
     }
     .hero-content {
-      max-width: 700px;
-      padding: 40px 0 80px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 0;
     }
     .hero h1 { margin-bottom: 20px; }
     .hero p { font-size: 1.2rem; margin-bottom: 32px; opacity: 0.95; }
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      align-items: center;
-    }
     /* Stats bar */
     .stats-bar {
       background: white;
@@ -164,7 +162,7 @@
     @media (max-width: 700px) {
       .stats-bar { flex-direction: column; text-align: center; border-radius: 32px; margin-top: -30px; }
     }
-    /* Two column layout */
+    /* Two column layout (reused for logo section and intro) */
     .two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -172,16 +170,26 @@
       align-items: center;
     }
     @media (max-width: 900px) {
-      .two-col { grid-template-columns: 1fr; gap: 30px; }
+      .two-col { grid-template-columns: 1fr; gap: 30px; text-align: center; }
     }
-    /* Services grid */
-    .services-grid, .portfolio-grid, .style-grid {
+    /* Logo section specific - center logo on mobile */
+    .logo-col {
+      text-align: center;
+    }
+    .brand-logo {
+      max-width: 100%;
+      width: 280px;
+      height: auto;
+      display: inline-block;
+    }
+    /* Products grid */
+    .products-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
       margin-top: 40px;
     }
-    .service-card, .portfolio-item, .style-card {
+    .product-card {
       background: white;
       padding: 32px 24px;
       border-radius: 28px;
@@ -190,30 +198,17 @@
       text-align: center;
       border: 1px solid #f0f0f0;
     }
-    .service-card:hover, .portfolio-item:hover, .style-card:hover {
+    .product-card:hover {
       transform: translateY(-8px);
       box-shadow: var(--shadow-md);
       border-color: var(--yellow);
     }
-    .service-icon, .style-icon {
+    .product-icon {
       font-size: 2.5rem;
       color: var(--yellow);
       margin-bottom: 20px;
     }
-    .portfolio-img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 20px;
-      margin-bottom: 16px;
-    }
-    .portfolio-category {
-      font-size: 0.8rem;
-      color: var(--yellow);
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-    /* How it works steps */
+    /* Manufacturing process steps */
     .steps {
       display: flex;
       justify-content: space-between;
@@ -240,47 +235,7 @@
       font-size: 1.5rem;
       margin-bottom: 20px;
     }
-    /* Pricing */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-    .pricing-card {
-      background: white;
-      border-radius: 28px;
-      padding: 32px;
-      box-shadow: var(--shadow-sm);
-      text-align: center;
-      border: 1px solid #eee;
-    }
-    .price {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--yellow);
-      margin: 20px 0;
-    }
-    /* Before/after */
-    .before-after {
-      background: linear-gradient(90deg, rgba(28,28,28,0.85) 0%, rgba(28,28,28,0.7) 100%), url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-      background-size: cover;
-      background-attachment: fixed;
-      color: white;
-    }
-    .ba-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-    }
-    .ba-card {
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(4px);
-      padding: 20px;
-      border-radius: 28px;
-      text-align: center;
-    }
-    /* Testimonials */
+    /* Testimonial */
     .testimonial-card {
       background: white;
       border-radius: 32px;
@@ -290,18 +245,15 @@
       border-left: 6px solid var(--yellow);
     }
     .stars { color: var(--yellow); margin-bottom: 16px; letter-spacing: 2px; }
-    /* Contact & footer */
-    .contact-section {
-      background: var(--gray-bg);
+    /* CTA with bg */
+    .cta-bg {
+      background: linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/2251247/pexels-photo-2251247.jpeg?auto=compress&cs=tinysrgb&w=1600');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      color: white;
     }
-    .contact-form input, .contact-form textarea {
-      width: 100%;
-      padding: 14px;
-      border-radius: 16px;
-      border: 1px solid #ddd;
-      margin-bottom: 16px;
-      font-family: inherit;
-    }
+    /* Footer */
     footer {
       background: var(--black);
       color: #aaa;
@@ -347,276 +299,214 @@
       opacity: 1;
       transform: translateY(0);
     }
+    /* Additional spacing for the new logo section */
+    .logo-section {
+      background: var(--white);
+    }
+    .brand-logo {
+      max-width: 220px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    @media (max-width: 768px) {
+      .brand-logo { margin-bottom: 20px; }
+    }
   </style>
 </head>
 <body>
 
 <nav class="navbar">
   <div class="container nav-container">
-    <a href="#" class="logo">Handy<span>gidi</span></a>
+    <a href="index.html" class="logo">Handy<span>gidi</span></a>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="portfolio.html">Portfolio</a>
-      <a href="services,html">Services</a>
+      <a href="services.html">Services</a>
       <a href="contact.html">Contact</a>
-      <a href="contact.html#booking" class="btn-nav">Book consult</a>
+      <a href="contact.html#booking" class="btn-nav">Request quote</a>
     </div>
   </div>
 </nav>
 
 <main>
-  <!-- Hero -->
+  <!-- Hero Section -->
   <section class="hero">
     <div class="container hero-content">
-      <h1>We design spaces<br>you’ll love to live in.<br><span style="color: #F4B400;">Handygidi makes it real.</span></h1>
-      <p>Premium interior design & furniture for homes and offices in Lagos. Let’s turn your space into a statement.</p>
+      <h1>We build furniture that <span style="color: #F4B400;">lasts generations</span> — because Lagos deserves quality.</h1>
+      <p>Handygidi is a premium furniture manufacturing company in Lagos. From sofas to beds to office desks – we craft, deliver, and stand by every piece.</p>
       <div class="hero-buttons">
-        <a href="#" class="btn-primary">Book free consultation →</a>
-        <a href="#" class="btn-secondary">View portfolio</a>
+        <a href="contact.html#booking" class="btn-primary">Get a quote →</a>
+        <a href="#products" class="btn-secondary">See our catalog</a>
       </div>
     </div>
   </section>
 
-  <!-- Stats / Trust badges -->
+  <!-- Trust Bar -->
   <div class="container">
     <div class="stats-bar fade-up">
-      <div class="stat-item"><div class="stat-number">⭐ 4.9</div><div>150+ reviews</div></div>
-      <div class="stat-item"><div class="stat-number">500+</div><div>Projects completed</div></div>
-      <div class="stat-item"><div class="stat-number">8+</div><div>Years experience</div></div>
-      <div class="stat-item"><div class="stat-number">Lagos wide</div><div>Lekki, VI, Ikeja, GRA</div></div>
+      <div class="stat-item"><div class="stat-number">500+</div><div>Pieces sold</div></div>
+      <div class="stat-item"><div class="stat-number">15+</div><div>Years experience</div></div>
+      <div class="stat-item"><div class="stat-number">⭐ 4.8</div><div>Client rating</div></div>
+      <div class="stat-item"><div class="stat-number">100%</div><div>Lagos made</div></div>
     </div>
   </div>
 
-  <!-- About section (story + philosophy) -->
+  <!-- About / Intro Section (two column) -->
   <section>
     <div class="container two-col">
       <div class="fade-up">
-        <h2>We don’t just decorate — <span style="color: var(--yellow);">we transform how you feel at home</span></h2>
-        <p>Handygidi was born because Lagos deserved better than cookie-cutter interiors. We blend modern aesthetics with African warmth, creating spaces that are both beautiful and livable.</p>
-        <p>Our philosophy: Every home tells a story. We help you write yours.</p>
-        <a href="#" class="btn-secondary">Read our story →</a>
+        <h2>More than a furniture store — <span style="color: var(--yellow);">we are manufacturers</span></h2>
+        <p>At Handygidi, we don't just import and resell. We design, cut, assemble, and finish every piece in our Lagos workshop. That means better quality control, lower prices, and furniture built specifically for Nigerian homes and offices.</p>
+        <p>From solid wood dining tables to luxury upholstered beds – every product is made with you in mind.</p>
+        <a href="about.html" class="btn-secondary">Learn about our process →</a>
       </div>
       <div class="fade-up">
-        <img src="https://images.unsplash.com/photo-1616486338812-3bade91c1e9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Designer at work" style="width:100%; border-radius: 28px;">
+        <img src="https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Furniture workshop" style="width:100%; border-radius: 28px; box-shadow: var(--shadow-md);">
       </div>
     </div>
   </section>
 
-  <!-- Services (structured) -->
-  <section style="background: var(--gray-bg);">
+  <!-- NEW SECTION: LOGO + BRAND CONTENT (side by side on desktop, stacked on mobile) -->
+  <section class="logo-section">
+    <div class="container two-col">
+      <div class="logo-col fade-up">
+        <!-- Placeholder logo – replace the src with your actual Handygidi logo URL -->
+        <img class="brand-logo" src="https://via.placeholder.com/400x300/F4B400/1C1C1C?text=HANDYGIDI+LOGO" alt="Handygidi Logo">
+        <!--
+          👆 IMPORTANT: Replace the above placeholder image with your actual logo.
+          You can also use an <img> tag pointing to your own file, e.g.:
+          <img class="brand-logo" src="images/handygidi-logo.png" alt="Handygidi Logo">
+        -->
+      </div>
+      <div class="fade-up">
+        <h2>Handygidi — <span style="color: var(--yellow);">craftsmanship you can trust</span></h2>
+        <p>Every piece of furniture that leaves our workshop carries the Handygidi promise: solid wood, precise joinery, and finishes that last. We don't believe in shortcuts. Whether it's a single custom sofa or a full office suite, we treat every order with the same attention to detail.</p>
+        <p>Our name stands for reliable, locally made furniture that serves Lagos families and businesses for years. No particle board. No factory rejects. Just honest, handcrafted quality.</p>
+        <a href="about.html" class="btn-secondary">Read our story →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products (formerly Services) -->
+  <section style="background: var(--gray-bg);" id="products">
     <div class="container">
-      <h2 class="fade-up">What we offer — <span style="color: var(--yellow);">tailored to you</span></h2>
-      <div class="services-grid">
-        <div class="service-card fade-up">
-          <div class="service-icon"><i class="fas fa-home"></i></div>
-          <h3>Residential Design</h3>
-          <p>Full home makeovers – from living rooms to bedrooms. We create cohesive, stunning spaces.</p>
+      <h2 class="fade-up">Our <span style="color: var(--yellow);">best sellers</span></h2>
+      <div class="products-grid">
+        <div class="product-card fade-up">
+          <div class="product-icon"><i class="fas fa-couch"></i></div>
+          <h3>Luxury Sofas</h3>
+          <p>Premium fabric, solid wood frame, high-density foam. Built for Lagos living.</p>
+          <div class="service-price" style="color: var(--yellow); font-weight: 700; margin: 15px 0;">From ₦250,000</div>
+          <a href="contact.html" class="btn-secondary">Inquire →</a>
         </div>
-        <div class="service-card fade-up">
-          <div class="service-icon"><i class="fas fa-building"></i></div>
-          <h3>Office / Commercial</h3>
-          <p>Increase productivity with professional, inspiring office interiors that impress clients.</p>
+        <div class="product-card fade-up">
+          <div class="product-icon"><i class="fas fa-bed"></i></div>
+          <h3>Solid Wood Beds</h3>
+          <p>Mahogany, iroko, or oak – handcrafted to your size and design.</p>
+          <div class="service-price" style="color: var(--yellow); font-weight: 700; margin: 15px 0;">From ₦180,000</div>
+          <a href="contact.html" class="btn-secondary">Inquire →</a>
         </div>
-        <div class="service-card fade-up">
-          <div class="service-icon"><i class="fas fa-drafting-compass"></i></div>
-          <h3>Space Planning</h3>
-          <p>Maximize every square foot. Awkward layouts become functional art.</p>
+        <div class="product-card fade-up">
+          <div class="product-icon"><i class="fas fa-chair"></i></div>
+          <h3>Dining Sets</h3>
+          <p>Tables + 6 chairs – modern or classic. Made to match your space.</p>
+          <div class="service-price" style="color: var(--yellow); font-weight: 700; margin: 15px 0;">From ₦350,000</div>
+          <a href="contact.html" class="btn-secondary">Inquire →</a>
         </div>
-        <div class="service-card fade-up">
-          <div class="service-icon"><i class="fas fa-couch"></i></div>
-          <h3>Furniture & Styling</h3>
-          <p>We source premium pieces and style them to perfection – delivered to your door.</p>
+        <div class="product-card fade-up">
+          <div class="product-icon"><i class="fas fa-briefcase"></i></div>
+          <h3>Office Furniture</h3>
+          <p>Desks, executive chairs, bookcases – bulk orders welcome.</p>
+          <div class="service-price" style="color: var(--yellow); font-weight: 700; margin: 15px 0;">Quote based</div>
+          <a href="contact.html" class="btn-secondary">Inquire →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Portfolio (with categories) -->
+  <!-- Manufacturing Process (How It Works) -->
   <section>
     <div class="container">
-      <h2 class="fade-up">Our work — <span style="color: var(--yellow);">real transformations</span></h2>
-      <div class="portfolio-grid">
-        <div class="portfolio-item fade-up">
-          <img class="portfolio-img" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Living room">
-          <div class="portfolio-category">Living Room</div>
-          <h3>Minimalist Luxury</h3>
-        </div>
-        <div class="portfolio-item fade-up">
-          <img class="portfolio-img" src="https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bedroom">
-          <div class="portfolio-category">Bedroom</div>
-          <h3>Serene Master Suite</h3>
-        </div>
-        <div class="portfolio-item fade-up">
-          <img class="portfolio-img" src="https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Office">
-          <div class="portfolio-category">Office</div>
-          <h3>Productive Workspace</h3>
-        </div>
-      </div>
-      <div style="text-align: center; margin-top: 40px;">
-        <a href="#" class="btn-primary">View full portfolio →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- How It Works (step-by-step) -->
-  <section style="background: var(--gray-bg);">
-    <div class="container">
-      <h2 class="fade-up">How it works — <span style="color: var(--yellow);">simple, transparent, exciting</span></h2>
+      <h2 class="fade-up">How we make it — <span style="color: var(--yellow);">craftsmanship in 4 steps</span></h2>
       <div class="steps">
-        <div class="step fade-up"><div class="step-number">1</div><h3>Consultation</h3><p>We listen to your vision, budget, and needs – free of charge.</p></div>
-        <div class="step fade-up"><div class="step-number">2</div><h3>Design proposal</h3><p>We create mood boards, 3D visuals, and a clear plan.</p></div>
-        <div class="step fade-up"><div class="step-number">3</div><h3>Execution</h3><p>We source, deliver, install – you relax.</p></div>
-        <div class="step fade-up"><div class="step-number">4</div><h3>Reveal</h3><p>Walk into your brand new space. Smile guaranteed.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing / Packages -->
-  <section>
-    <div class="container">
-      <h2 class="fade-up">Investment — <span style="color: var(--yellow);">packages for every budget</span></h2>
-      <div class="pricing-grid">
-        <div class="pricing-card fade-up">
-          <h3>Essential Room</h3>
-          <div class="price">₦150,000</div>
-          <p>Single room design (furniture sourcing + styling)</p>
-          <a href="#" class="btn-secondary">Enquire</a>
-        </div>
-        <div class="pricing-card fade-up">
-          <h3>Premium Home</h3>
-          <div class="price">₦450,000</div>
-          <p>Full apartment (3 rooms + consultation + delivery)</p>
-          <a href="#" class="btn-primary">Book now</a>
-        </div>
-        <div class="pricing-card fade-up">
-          <h3>Office Suite</h3>
-          <div class="price">₦350,000+</div>
-          <p>Custom commercial design – quote based on size</p>
-          <a href="#" class="btn-secondary">Request quote</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Design Style Showcase -->
-  <section style="background: var(--gray-bg);">
-    <div class="container">
-      <h2 class="fade-up">Our design styles — <span style="color: var(--yellow);">which one feels like you?</span></h2>
-      <div class="style-grid">
-        <div class="style-card fade-up"><div class="style-icon"><i class="fas fa-chalkboard-teacher"></i></div><h3>Modern Minimalist</h3><p>Clean lines, neutral tones, timeless.</p></div>
-        <div class="style-card fade-up"><div class="style-icon"><i class="fas fa-crown"></i></div><h3>Luxury Contemporary</h3><p>Bold accents, rich textures, statement pieces.</p></div>
-        <div class="style-card fade-up"><div class="style-icon"><i class="fas fa-leaf"></i></div><h3>Biophilic / Natural</h3><p>Indoor plants, organic materials, calm energy.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Before & After Transformation (powerful) -->
-  <section class="before-after">
-    <div class="container">
-      <h2 class="fade-up">Before & After — <span style="color: var(--yellow);">the proof is in the photos</span></h2>
-      <div class="ba-grid">
-        <div class="ba-card fade-up">
-          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Before" style="width:100%; border-radius: 20px;">
-          <p style="margin-top: 10px;">⬅️ Before: Dark, cramped</p>
-        </div>
-        <div class="ba-card fade-up">
-          <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="After" style="width:100%; border-radius: 20px;">
-          <p style="margin-top: 10px;">➡️ After: Bright, spacious, elegant</p>
-        </div>
+        <div class="step fade-up"><div class="step-number">1</div><h3>Design consultation</h3><p>You share your needs, style, and budget.</p></div>
+        <div class="step fade-up"><div class="step-number">2</div><h3>Material selection</h3><p>We help you choose wood, fabric, finish.</p></div>
+        <div class="step fade-up"><div class="step-number">3</div><h3>Production</h3><p>Our artisans build your piece in our Lagos workshop.</p></div>
+        <div class="step fade-up"><div class="step-number">4</div><h3>Delivery & install</h3><p>We bring it to your home or office – no hassle.</p></div>
       </div>
     </div>
   </section>
 
   <!-- Testimonials -->
+  <section style="background: var(--gray-bg);">
+    <div class="container">
+      <h2 class="fade-up" style="text-align: center;">What our customers say — <span style="color: var(--yellow);">real feedback</span></h2>
+      <div class="testimonial-card fade-up">
+        <div class="stars">★★★★★</div>
+        <p>“Handygidi made a 6-seater dining table for me. The quality is amazing – solid wood, perfect finish, and they delivered on time. I’m planning to order bedroom furniture next.”</p>
+        <p style="margin-top: 16px; font-weight: 600;">– Adeola, Lekki</p>
+      </div>
+      <div class="testimonial-card fade-up">
+        <div class="stars">★★★★★</div>
+        <p>“We bought 20 office desks and chairs for our startup. Handygidi gave us a fair price, delivered within a week, and the furniture is better than imported alternatives.”</p>
+        <p style="margin-top: 16px; font-weight: 600;">– Michael, VI (Tech Hub)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof Section with bg image -->
+  <section class="cta-bg">
+    <div class="container" style="text-align: center;">
+      <h2 class="fade-up">See our work on Instagram</h2>
+      <p style="font-size: 1.2rem; max-width: 550px; margin: 0 auto 20px;">Follow <strong>@handygidi</strong> for behind-the-scenes, new arrivals, and customer photos.</p>
+      <a href="https://www.instagram.com/handygidi" target="_blank" class="btn-primary" style="background: #F4B400; color: black;">👉 Follow @handygidi</a>
+      <p style="margin-top: 24px;"><i class="fab fa-facebook"></i> Also on <a href="https://www.facebook.com/Handygidi" style="color: white; text-decoration: underline;" target="_blank">Facebook</a></p>
+    </div>
+  </section>
+
+  <!-- Final CTA (Get Quote) -->
   <section>
-    <div class="container">
-      <h2 class="fade-up" style="text-align: center;">Lagos loves Handygidi — <span style="color: var(--yellow);">see why</span></h2>
-      <div class="testimonial-card fade-up">
-        <div class="stars">★★★★★</div>
-        <p>“Handygidi turned my empty apartment into a home I’m proud of. They listened, delivered on time, and even helped with little styling touches I never would have thought of.”</p>
-        <div class="customer-name">– Adaobi, Lekki</div>
-      </div>
-      <div class="testimonial-card fade-up">
-        <div class="stars">★★★★★</div>
-        <p>“Our office looks like a global brand now. The team was professional, fast, and the furniture quality is top. Highly recommend.”</p>
-        <div class="customer-name">– Michael, VI</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact section (phone, WhatsApp, form) -->
-  <section class="contact-section">
-    <div class="container two-col">
-      <div class="fade-up">
-        <h2>Let’s create something beautiful — <span style="color: var(--yellow);">reach out today</span></h2>
-        <p><i class="fas fa-phone-alt" style="color: var(--yellow);"></i> Call us: <strong>+234 901 234 5678</strong></p>
-        <p><i class="fab fa-whatsapp" style="color: var(--yellow);"></i> WhatsApp: <strong>+234 901 234 5678</strong></p>
-        <p><i class="fas fa-envelope" style="color: var(--yellow);"></i> Email: <strong>hello@handygidi.com</strong></p>
-        <p><i class="fas fa-map-marker-alt" style="color: var(--yellow);"></i> Serving Lagos: Lekki, VI, Ikeja, GRA, Surulere, Ajah</p>
-        <div class="social-icons" style="margin-top: 20px;">
-          <i class="fab fa-instagram"></i> <i class="fab fa-facebook"></i> <i class="fab fa-twitter"></i>
-        </div>
-      </div>
-      <div class="fade-up">
-        <form class="contact-form">
-          <input type="text" placeholder="Your name" required>
-          <input type="tel" placeholder="Phone number" required>
-          <input type="email" placeholder="Email">
-          <select style="width:100%; padding:14px; border-radius:16px; margin-bottom:16px;">
-            <option>I’m interested in...</option>
-            <option>Full home design</option>
-            <option>Furniture purchase</option>
-            <option>Office design</option>
-            <option>Consultation only</option>
-          </select>
-          <textarea rows="3" placeholder="Tell us about your space..."></textarea>
-          <button type="submit" class="btn-primary" style="width:100%;">Send request →</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Final CTA with background image (already has bg) -->
-  <section class="before-after" style="background: linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); text-align: center;">
-    <div class="container">
-      <h2 class="fade-up">Ready to fall in love with your home again?</h2>
-      <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 20px;">Book a free, no‑pressure design consultation. Let’s bring your vision to life.</p>
-      <a href="#" class="btn-primary" style="background: #F4B400; color: black;">👉 Book your free session</a>
-      <p style="margin-top: 20px;"><i class="fab fa-whatsapp"></i> Or WhatsApp us for a quick chat</p>
+    <div class="container" style="text-align: center;">
+      <h2 class="fade-up">Ready to own quality, Lagos‑made furniture?</h2>
+      <p style="margin-bottom: 20px;">Tell us what you need – we’ll give you a quote within 24 hours.</p>
+      <a href="contact.html#booking" class="btn-primary">Request a free quote →</a>
     </div>
   </section>
 </main>
 
-<!-- Complete Footer -->
+<!-- Footer -->
 <footer>
   <div class="container footer-grid">
     <div class="footer-col">
       <h4>Handygidi</h4>
-      <p>Premium interior design & furniture – Lagos wide. We make spaces you’ll love.</p>
+      <p>Lagos's trusted furniture manufacturer. Quality, durability, and style – made locally.</p>
+      <div class="social-icons" style="margin-top: 16px;">
+        <a href="https://www.instagram.com/handygidi" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/Handygidi" target="_blank"><i class="fab fa-facebook"></i></a>
+      </div>
     </div>
     <div class="footer-col">
-      <h4>Quick links</h4>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Portfolio</a>
-      <a href="#">Services</a>
-      <a href="#">Contact</a>
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
     </div>
     <div class="footer-col">
-      <h4>Legal</h4>
-      <a href="#">Privacy policy</a>
-      <a href="#">Terms of service</a>
-      <a href="#">Cancellation policy</a>
+      <h4>Social Media</h4>
+      <a href="https://www.instagram.com/handygidi" target="_blank">Instagram: @handygidi</a>
+      <a href="https://www.facebook.com/Handygidi" target="_blank">Facebook Page</a>
     </div>
     <div class="footer-col newsletter">
-      <h4>Get design ideas</h4>
+      <h4>Get updates</h4>
       <input type="email" placeholder="Your email">
       <button class="btn-primary" style="margin-top: 10px;">Subscribe</button>
     </div>
   </div>
   <div class="container" style="text-align: center; border-top: 1px solid #333; padding-top: 24px;">
-    <p>© 2025 Handygidi – Style without stress. All rights reserved.</p>
+    <p>© 2025 Handygidi – Quality Furniture, Lagos. All rights reserved.</p>
   </div>
 </footer>
 
