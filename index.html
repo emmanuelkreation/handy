@@ -162,7 +162,7 @@
     @media (max-width: 700px) {
       .stats-bar { flex-direction: column; text-align: center; border-radius: 32px; margin-top: -30px; }
     }
-    /* Two column layout (reused for logo section and intro) */
+    /* Two column layout (reused for logo section, intro, and form section) */
     .two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -172,7 +172,7 @@
     @media (max-width: 900px) {
       .two-col { grid-template-columns: 1fr; gap: 30px; text-align: center; }
     }
-    /* Logo section specific - center logo on mobile */
+    /* Logo section specific */
     .logo-col {
       text-align: center;
     }
@@ -245,6 +245,41 @@
       border-left: 6px solid var(--yellow);
     }
     .stars { color: var(--yellow); margin-bottom: 16px; letter-spacing: 2px; }
+    /* Form styles */
+    .form-section {
+      background: var(--gray-bg);
+    }
+    .quote-form input, .quote-form select, .quote-form textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 20px;
+      border: 1px solid #ddd;
+      margin-bottom: 18px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: all 0.2s;
+      background: white;
+    }
+    .quote-form input:focus, .quote-form select:focus, .quote-form textarea:focus {
+      outline: none;
+      border-color: var(--yellow);
+      box-shadow: 0 0 0 3px rgba(244,180,0,0.1);
+    }
+    .form-benefits {
+      list-style: none;
+      margin-top: 20px;
+    }
+    .form-benefits li {
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .form-benefits i {
+      color: var(--yellow);
+      font-size: 1.2rem;
+      width: 24px;
+    }
     /* CTA with bg */
     .cta-bg {
       background: linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/2251247/pexels-photo-2251247.jpeg?auto=compress&cs=tinysrgb&w=1600');
@@ -299,10 +334,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-    /* Additional spacing for the new logo section */
-    .logo-section {
-      background: var(--white);
-    }
     .brand-logo {
       max-width: 220px;
       border-radius: 20px;
@@ -352,7 +383,7 @@
     </div>
   </div>
 
-  <!-- About / Intro Section (two column) -->
+  <!-- About / Intro Section -->
   <section>
     <div class="container two-col">
       <div class="fade-up">
@@ -367,28 +398,23 @@
     </div>
   </section>
 
-  <!-- NEW SECTION: LOGO + BRAND CONTENT (side by side on desktop, stacked on mobile) -->
+  <!-- Logo + Brand Content Section -->
   <section class="logo-section">
     <div class="container two-col">
       <div class="logo-col fade-up">
-        <!-- Placeholder logo – replace the src with your actual Handygidi logo URL -->
+        <!-- Placeholder logo – replace with actual logo URL -->
         <img class="brand-logo" src="https://via.placeholder.com/400x300/F4B400/1C1C1C?text=HANDYGIDI+LOGO" alt="Handygidi Logo">
-        <!--
-          👆 IMPORTANT: Replace the above placeholder image with your actual logo.
-          You can also use an <img> tag pointing to your own file, e.g.:
-          <img class="brand-logo" src="images/handygidi-logo.png" alt="Handygidi Logo">
-        -->
       </div>
       <div class="fade-up">
         <h2>Handygidi — <span style="color: var(--yellow);">craftsmanship you can trust</span></h2>
         <p>Every piece of furniture that leaves our workshop carries the Handygidi promise: solid wood, precise joinery, and finishes that last. We don't believe in shortcuts. Whether it's a single custom sofa or a full office suite, we treat every order with the same attention to detail.</p>
-        <p>Our name stands for reliable, locally made furniture that serves Lagos families and businesses for years. No particle board. No factory rejects. Just honest, handcrafted quality.</p>
+        <p>Our name stands for reliable, locally made furniture that serves Lagos families and businesses for years. No particle board. Just honest, handcrafted quality.</p>
         <a href="about.html" class="btn-secondary">Read our story →</a>
       </div>
     </div>
   </section>
 
-  <!-- Featured Products (formerly Services) -->
+  <!-- Featured Products -->
   <section style="background: var(--gray-bg);" id="products">
     <div class="container">
       <h2 class="fade-up">Our <span style="color: var(--yellow);">best sellers</span></h2>
@@ -425,7 +451,7 @@
     </div>
   </section>
 
-  <!-- Manufacturing Process (How It Works) -->
+  <!-- Manufacturing Process -->
   <section>
     <div class="container">
       <h2 class="fade-up">How we make it — <span style="color: var(--yellow);">craftsmanship in 4 steps</span></h2>
@@ -455,7 +481,48 @@
     </div>
   </section>
 
-  <!-- Social Proof Section with bg image -->
+  <!-- NEW FORM SECTION (Quote Request) -->
+  <section class="form-section">
+    <div class="container">
+      <div class="two-col">
+        <div class="fade-up">
+          <h2>Request a <span style="color: var(--yellow);">free quote</span></h2>
+          <p>Tell us about your furniture needs – custom piece, bulk order, or restoration. We’ll reply within 24 hours with a no‑obligation quote.</p>
+          <form class="quote-form" id="homepageQuoteForm">
+            <input type="text" placeholder="Full name" required>
+            <input type="tel" placeholder="Phone number" required>
+            <input type="email" placeholder="Email address">
+            <select required>
+              <option value="">I'm interested in...</option>
+              <option>Custom furniture (single piece)</option>
+              <option>Bulk order for office/hotel</option>
+              <option>Restoration & repair</option>
+              <option>Upholstery service</option>
+              <option>Other / Not sure</option>
+            </select>
+            <textarea rows="3" placeholder="Tell us about your project (dimensions, style, deadline, budget...)" required></textarea>
+            <button type="submit" class="btn-primary" style="width:100%;">Send quote request →</button>
+          </form>
+        </div>
+        <div class="fade-up">
+          <h3>Why request a quote from us?</h3>
+          <ul class="form-benefits">
+            <li><i class="fas fa-check-circle"></i> Free, no‑pressure consultation</li>
+            <li><i class="fas fa-check-circle"></i> Transparent pricing – no hidden fees</li>
+            <li><i class="fas fa-check-circle"></i> Locally made, premium materials</li>
+            <li><i class="fas fa-check-circle"></i> Delivery & installation across Lagos</li>
+            <li><i class="fas fa-check-circle"></i> 24‑hour response guarantee</li>
+          </ul>
+          <div style="margin-top: 30px;">
+            <p><i class="fas fa-phone-alt" style="color: var(--yellow);"></i> <strong>Or call us directly:</strong> +234 901 234 5678</p>
+            <p><i class="fab fa-whatsapp" style="color: var(--yellow);"></i> <strong>WhatsApp:</strong> +234 901 234 5678</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof Section with Instagram CTA -->
   <section class="cta-bg">
     <div class="container" style="text-align: center;">
       <h2 class="fade-up">See our work on Instagram</h2>
@@ -465,12 +532,12 @@
     </div>
   </section>
 
-  <!-- Final CTA (Get Quote) -->
+  <!-- Final CTA (Get Quote) - optional now that we have the form, but kept for consistency -->
   <section>
     <div class="container" style="text-align: center;">
       <h2 class="fade-up">Ready to own quality, Lagos‑made furniture?</h2>
       <p style="margin-bottom: 20px;">Tell us what you need – we’ll give you a quote within 24 hours.</p>
-      <a href="contact.html#booking" class="btn-primary">Request a free quote →</a>
+      <a href="#homepageQuoteForm" class="btn-primary">Request a free quote →</a>
     </div>
   </section>
 </main>
@@ -511,6 +578,7 @@
 </footer>
 
 <script>
+  // Fade-up observer
   const faders = document.querySelectorAll('.fade-up');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -528,6 +596,16 @@
       }
     });
   });
+
+  // Form submission handler (demo)
+  const form = document.getElementById('homepageQuoteForm');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you! We will get back to you within 24 hours with your free quote.');
+      form.reset();
+    });
+  }
 </script>
 </body>
 </html>
