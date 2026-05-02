@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Handygidi – Portfolio & Reviews | Interior Design Lagos</title>
+  <title>Handygidi – Contact & Book Consultation | Interior Design Lagos</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Leaflet CSS for map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     * {
       margin: 0;
@@ -56,6 +58,8 @@
       text-decoration: none;
       transition: all 0.3s ease;
       font-size: 1rem;
+      border: none;
+      cursor: pointer;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     }
     .btn-primary:hover {
@@ -128,7 +132,7 @@
     }
     /* Hero with bg image */
     .hero {
-      background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 100%), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+      background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 100%), url('https://images.unsplash.com/photo-1616486338812-3bade91c1e9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
       background-size: cover;
       background-position: center 30%;
       color: white;
@@ -141,414 +145,76 @@
     }
     .hero h1 { margin-bottom: 20px; }
     .hero p { font-size: 1.2rem; margin-bottom: 32px; opacity: 0.95; }
-    /* Category filters */
-    .filters {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 40px;
-    }
-    .filter-btn {
-      background: transparent;
-      border: 1px solid #ddd;
-      padding: 8px 24px;
-      border-radius: 40px;
-      cursor: pointer;
-      font-family: inherit;
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-    .filter-btn.active, .filter-btn:hover {
-      background: var(--yellow);
-      border-color: var(--yellow);
-      color: var(--black);
-    }
-    /* Portfolio grid */
-    .portfolio-grid {
+    /* Two column layout for contact info + form */
+    .two-col {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 30px;
-    }
-    .portfolio-item {
-      background: white;
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-    .portfolio-item:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-md);
-    }
-    .portfolio-img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-    }
-    .portfolio-info {
-      padding: 20px;
-    }
-    .portfolio-category {
-      color: var(--yellow);
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .portfolio-title {
-      font-size: 1.3rem;
-      margin: 8px 0;
-    }
-    /* Before/After section with bg */
-    .beforeafter-bg {
-      background: linear-gradient(90deg, rgba(28,28,28,0.85) 0%, rgba(28,28,28,0.7) 100%), url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-      background-size: cover;
-      background-attachment: fixed;
-      color: white;
-    }
-    .ba-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-    .ba-card {
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(4px);
-      padding: 20px;
-      border-radius: 28px;
-      text-align: center;
-    }
-    .ba-img {
-      width: 100%;
-      border-radius: 20px;
-      margin-bottom: 12px;
-    }
-    /* Testimonials grid */
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-    .testimonial-card {
-      background: white;
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: var(--shadow-sm);
-      border-left: 6px solid var(--yellow);
-    }
-    .stars { color: var(--yellow); margin-bottom: 16px; letter-spacing: 2px; }
-    /* CTA section with bg */
-    .cta-bg {
-      background: linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1616486338812-3bade91c1e9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-      background-size: cover;
-      background-position: center;
-      text-align: center;
-      color: white;
-    }
-    /* Footer */
-    footer {
-      background: var(--black);
-      color: #aaa;
-      padding: 48px 0 24px;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 40px;
-      margin-bottom: 40px;
+      align-items: start;
     }
-    .footer-col h4 {
-      color: white;
-      margin-bottom: 20px;
+    @media (max-width: 900px) {
+      .two-col { grid-template-columns: 1fr; gap: 30px; }
     }
-    .footer-col a {
-      color: #ccc;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 10px;
+    .contact-info {
+      background: var(--gray-bg);
+      padding: 32px;
+      border-radius: 28px;
     }
-    .footer-col a:hover { color: var(--yellow); }
-    .social-icons i {
-      font-size: 1.4rem;
-      margin-right: 16px;
-      color: #ccc;
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
     }
-    .social-icons i:hover { color: var(--yellow); }
-    .newsletter input {
-      padding: 12px;
-      border-radius: 40px;
-      border: none;
-      width: 70%;
-      margin-right: 8px;
-    }
-    /* Animations */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.7s ease;
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
-</head>
-<body>
-
-<nav class="navbar">
-  <div class="container nav-container">
-    <a href="#" class="logo">Handy<span>gidi</span></a>
-    <div class="nav-links">
-     <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Handygidi – Portfolio & Reviews | Interior Design Lagos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #FFFFFF;
-      color: #1C1C1C;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
-    :root {
-      --yellow: #F4B400;
-      --yellow-dark: #E0A800;
-      --black: #1C1C1C;
-      --gray-bg: #F5F5F5;
-      --blue: #1E88E5;
-      --white: #FFFFFF;
-      --shadow-sm: 0 8px 20px rgba(0,0,0,0.03), 0 2px 4px rgba(0,0,0,0.05);
-      --shadow-md: 0 20px 30px -12px rgba(0,0,0,0.1);
-    }
-    h1, h2, h3 {
-      font-weight: 700;
-      line-height: 1.2;
-    }
-    h1 { font-size: clamp(2.2rem, 6vw, 3.8rem); }
-    h2 { font-size: clamp(1.8rem, 5vw, 2.5rem); margin-bottom: 1rem; }
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    section {
-      padding: 80px 0;
-    }
-    @media (max-width: 768px) {
-      section { padding: 60px 0; }
-    }
-    .btn-primary {
-      display: inline-block;
+    .contact-icon {
+      width: 50px;
+      height: 50px;
       background: var(--yellow);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
       color: var(--black);
-      font-weight: 700;
-      padding: 14px 32px;
-      border-radius: 40px;
-      text-decoration: none;
-      transition: all 0.3s ease;
+    }
+    .contact-form input, .contact-form select, .contact-form textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 20px;
+      border: 1px solid #ddd;
+      margin-bottom: 18px;
+      font-family: inherit;
       font-size: 1rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     }
-    .btn-primary:hover {
-      background: var(--yellow-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 20px -12px rgba(244,180,0,0.4);
-    }
-    .btn-secondary {
-      display: inline-block;
-      background: transparent;
-      color: var(--blue);
-      font-weight: 600;
-      padding: 12px 24px;
-      border-radius: 40px;
-      text-decoration: none;
-      margin-left: 12px;
-    }
-    .btn-secondary:hover { text-decoration: underline; }
-    /* Navbar */
-    .navbar {
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(8px);
-      padding: 16px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--black);
-      text-decoration: none;
-    }
-    .logo span { color: var(--yellow); }
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--black);
-      font-weight: 500;
-      transition: 0.2s;
-    }
-    .nav-links a:hover { color: var(--yellow); }
-    .btn-nav {
-      background: var(--black);
-      color: white !important;
-      padding: 8px 20px;
-      border-radius: 30px;
-      font-weight: 600;
-    }
-    .btn-nav:hover {
-      background: var(--yellow);
-      color: var(--black) !important;
-    }
-    @media (max-width: 768px) {
-      .nav-container { flex-direction: column; }
-      .nav-links { justify-content: center; gap: 20px; }
-    }
-    /* Hero with bg image */
-    .hero {
-      background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 100%), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-      background-size: cover;
-      background-position: center 30%;
-      color: white;
-      text-align: center;
-    }
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 60px 0;
-    }
-    .hero h1 { margin-bottom: 20px; }
-    .hero p { font-size: 1.2rem; margin-bottom: 32px; opacity: 0.95; }
-    /* Category filters */
-    .filters {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 40px;
-    }
-    .filter-btn {
-      background: transparent;
-      border: 1px solid #ddd;
-      padding: 8px 24px;
-      border-radius: 40px;
-      cursor: pointer;
-      font-family: inherit;
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-    .filter-btn.active, .filter-btn:hover {
-      background: var(--yellow);
+    .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
+      outline: none;
       border-color: var(--yellow);
-      color: var(--black);
     }
-    /* Portfolio grid */
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 30px;
-    }
-    .portfolio-item {
-      background: white;
+    /* Map container */
+    .map-container {
+      margin-top: 40px;
       border-radius: 28px;
       overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-    .portfolio-item:hover {
-      transform: translateY(-8px);
       box-shadow: var(--shadow-md);
+      height: 300px;
     }
-    .portfolio-img {
+    #map {
+      height: 100%;
       width: 100%;
-      height: 260px;
-      object-fit: cover;
+      z-index: 1;
     }
-    .portfolio-info {
-      padding: 20px;
-    }
-    .portfolio-category {
-      color: var(--yellow);
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .portfolio-title {
-      font-size: 1.3rem;
-      margin: 8px 0;
-    }
-    /* Before/After section with bg */
-    .beforeafter-bg {
-      background: linear-gradient(90deg, rgba(28,28,28,0.85) 0%, rgba(28,28,28,0.7) 100%), url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-      background-size: cover;
-      background-attachment: fixed;
-      color: white;
-    }
-    .ba-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+    /* Consultation booking section separate */
+    .booking-section {
+      background: var(--gray-bg);
+      border-radius: 28px;
       margin-top: 40px;
     }
-    .ba-card {
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(4px);
-      padding: 20px;
-      border-radius: 28px;
-      text-align: center;
+    .booking-inner {
+      padding: 40px;
     }
-    .ba-img {
-      width: 100%;
-      border-radius: 20px;
-      margin-bottom: 12px;
-    }
-    /* Testimonials grid */
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-    .testimonial-card {
-      background: white;
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: var(--shadow-sm);
-      border-left: 6px solid var(--yellow);
-    }
-    .stars { color: var(--yellow); margin-bottom: 16px; letter-spacing: 2px; }
-    /* CTA section with bg */
+    /* CTA section */
     .cta-bg {
-      background: linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1616486338812-3bade91c1e9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+      background: linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
       background-size: cover;
       background-position: center;
       text-align: center;
@@ -608,317 +274,12 @@
   <div class="container nav-container">
     <a href="#" class="logo">Handy<span>gidi</span></a>
     <div class="nav-links">
-     <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Handygidi – Portfolio & Reviews | Interior Design Lagos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #FFFFFF;
-      color: #1C1C1C;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
-    :root {
-      --yellow: #F4B400;
-      --yellow-dark: #E0A800;
-      --black: #1C1C1C;
-      --gray-bg: #F5F5F5;
-      --blue: #1E88E5;
-      --white: #FFFFFF;
-      --shadow-sm: 0 8px 20px rgba(0,0,0,0.03), 0 2px 4px rgba(0,0,0,0.05);
-      --shadow-md: 0 20px 30px -12px rgba(0,0,0,0.1);
-    }
-    h1, h2, h3 {
-      font-weight: 700;
-      line-height: 1.2;
-    }
-    h1 { font-size: clamp(2.2rem, 6vw, 3.8rem); }
-    h2 { font-size: clamp(1.8rem, 5vw, 2.5rem); margin-bottom: 1rem; }
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    section {
-      padding: 80px 0;
-    }
-    @media (max-width: 768px) {
-      section { padding: 60px 0; }
-    }
-    .btn-primary {
-      display: inline-block;
-      background: var(--yellow);
-      color: var(--black);
-      font-weight: 700;
-      padding: 14px 32px;
-      border-radius: 40px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-size: 1rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    }
-    .btn-primary:hover {
-      background: var(--yellow-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 20px -12px rgba(244,180,0,0.4);
-    }
-    .btn-secondary {
-      display: inline-block;
-      background: transparent;
-      color: var(--blue);
-      font-weight: 600;
-      padding: 12px 24px;
-      border-radius: 40px;
-      text-decoration: none;
-      margin-left: 12px;
-    }
-    .btn-secondary:hover { text-decoration: underline; }
-    /* Navbar */
-    .navbar {
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(8px);
-      padding: 16px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--black);
-      text-decoration: none;
-    }
-    .logo span { color: var(--yellow); }
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--black);
-      font-weight: 500;
-      transition: 0.2s;
-    }
-    .nav-links a:hover { color: var(--yellow); }
-    .btn-nav {
-      background: var(--black);
-      color: white !important;
-      padding: 8px 20px;
-      border-radius: 30px;
-      font-weight: 600;
-    }
-    .btn-nav:hover {
-      background: var(--yellow);
-      color: var(--black) !important;
-    }
-    @media (max-width: 768px) {
-      .nav-container { flex-direction: column; }
-      .nav-links { justify-content: center; gap: 20px; }
-    }
-    /* Hero with bg image */
-    .hero {
-      background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 100%), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-      background-size: cover;
-      background-position: center 30%;
-      color: white;
-      text-align: center;
-    }
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 60px 0;
-    }
-    .hero h1 { margin-bottom: 20px; }
-    .hero p { font-size: 1.2rem; margin-bottom: 32px; opacity: 0.95; }
-    /* Category filters */
-    .filters {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 40px;
-    }
-    .filter-btn {
-      background: transparent;
-      border: 1px solid #ddd;
-      padding: 8px 24px;
-      border-radius: 40px;
-      cursor: pointer;
-      font-family: inherit;
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-    .filter-btn.active, .filter-btn:hover {
-      background: var(--yellow);
-      border-color: var(--yellow);
-      color: var(--black);
-    }
-    /* Portfolio grid */
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 30px;
-    }
-    .portfolio-item {
-      background: white;
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-    .portfolio-item:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-md);
-    }
-    .portfolio-img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-    }
-    .portfolio-info {
-      padding: 20px;
-    }
-    .portfolio-category {
-      color: var(--yellow);
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .portfolio-title {
-      font-size: 1.3rem;
-      margin: 8px 0;
-    }
-    /* Before/After section with bg */
-    .beforeafter-bg {
-      background: linear-gradient(90deg, rgba(28,28,28,0.85) 0%, rgba(28,28,28,0.7) 100%), url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-      background-size: cover;
-      background-attachment: fixed;
-      color: white;
-    }
-    .ba-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-    .ba-card {
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(4px);
-      padding: 20px;
-      border-radius: 28px;
-      text-align: center;
-    }
-    .ba-img {
-      width: 100%;
-      border-radius: 20px;
-      margin-bottom: 12px;
-    }
-    /* Testimonials grid */
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-    .testimonial-card {
-      background: white;
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: var(--shadow-sm);
-      border-left: 6px solid var(--yellow);
-    }
-    .stars { color: var(--yellow); margin-bottom: 16px; letter-spacing: 2px; }
-    /* CTA section with bg */
-    .cta-bg {
-      background: linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1616486338812-3bade91c1e9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-      background-size: cover;
-      background-position: center;
-      text-align: center;
-      color: white;
-    }
-    /* Footer */
-    footer {
-      background: var(--black);
-      color: #aaa;
-      padding: 48px 0 24px;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-    .footer-col h4 {
-      color: white;
-      margin-bottom: 20px;
-    }
-    .footer-col a {
-      color: #ccc;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 10px;
-    }
-    .footer-col a:hover { color: var(--yellow); }
-    .social-icons i {
-      font-size: 1.4rem;
-      margin-right: 16px;
-      color: #ccc;
-    }
-    .social-icons i:hover { color: var(--yellow); }
-    .newsletter input {
-      padding: 12px;
-      border-radius: 40px;
-      border: none;
-      width: 70%;
-      margin-right: 8px;
-    }
-    /* Animations */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.7s ease;
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
-</head>
-<body>
-
-<nav class="navbar">
-  <div class="container nav-container">
-    <a href="#" class="logo">Handy<span>gidi</span></a>
-    <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Portfolio</a>
-      <a href="#">Services</a>
-      <a href="#">Contact</a>
-      <a href="#" class="btn-nav">Book consult</a>
+       <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="services,html">Services</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html#booking" class="btn-nav">Book consult</a>
     </div>
   </div>
 </nav>
@@ -927,92 +288,108 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container hero-content">
-      <h1>Our work speaks for itself — <span style="color: #F4B400;">see the transformations</span></h1>
-      <p>Real projects. Real homes. Real emotions. Browse through our portfolio and read what our clients have to say.</p>
-      <a href="#" class="btn-primary">Book a free consultation →</a>
+      <h1>Let’s create something beautiful — <span style="color: #F4B400;">reach out today</span></h1>
+      <p>Call, WhatsApp, or fill the form. We reply within hours, not days. Free consultation for first‑time clients.</p>
+      <a href="#booking" class="btn-primary">Book a free consultation →</a>
     </div>
   </section>
 
-  <!-- Portfolio with Filters -->
+  <!-- Contact Info + Quick Form (two columns) -->
   <section>
     <div class="container">
-      <div class="filters fade-up">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="living">Living Room</button>
-        <button class="filter-btn" data-filter="bedroom">Bedroom</button>
-        <button class="filter-btn" data-filter="office">Office</button>
-        <button class="filter-btn" data-filter="dining">Dining</button>
-      </div>
-      <div class="portfolio-grid" id="portfolioGrid">
-        <!-- Items will be populated by JS, but static fallback included -->
-      </div>
-      <div style="text-align: center; margin-top: 50px;">
-        <a href="#" class="btn-secondary">View full case studies →</a>
+      <div class="two-col">
+        <div class="contact-info fade-up">
+          <h2 style="margin-bottom: 24px;">Get in touch</h2>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+            <div><strong>Phone</strong><br>+234 901 234 5678</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+            <div><strong>WhatsApp</strong><br>+234 901 234 5678 (click to chat)</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div><strong>Email</strong><br>hello@handygidi.com</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div><strong>Service area</strong><br>Lekki, VI, Ikeja, GRA, Surulere, Ajah & entire Lagos</div>
+          </div>
+          <div class="social-icons" style="margin-top: 20px;">
+            <i class="fab fa-instagram"></i> <i class="fab fa-facebook"></i> <i class="fab fa-twitter"></i>
+          </div>
+        </div>
+
+        <div class="fade-up">
+          <h2>Quick message</h2>
+          <form class="contact-form" id="quickForm">
+            <input type="text" placeholder="Your name" required>
+            <input type="tel" placeholder="Phone number" required>
+            <input type="email" placeholder="Email (optional)">
+            <select>
+              <option>I’m interested in...</option>
+              <option>Full home design</option>
+              <option>Furniture purchase</option>
+              <option>Office design</option>
+              <option>Free consultation</option>
+            </select>
+            <textarea rows="3" placeholder="Tell us about your space or question..."></textarea>
+            <button type="submit" class="btn-primary" style="width:100%;">Send message →</button>
+          </form>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Before & After Transformation Section (with bg image) -->
-  <section class="beforeafter-bg">
-    <div class="container">
-      <h2 class="fade-up" style="text-align: center;">The proof is in the <span style="color: var(--yellow);">transformation</span></h2>
-      <div class="ba-grid">
-        <div class="ba-card fade-up">
-          <img class="ba-img" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Before living room">
-          <p><strong>⬅️ Before:</strong> Dark, cramped, outdated</p>
-        </div>
-        <div class="ba-card fade-up">
-          <img class="ba-img" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="After living room">
-          <p><strong>➡️ After:</strong> Bright, spacious, elegant</p>
-        </div>
-        <div class="ba-card fade-up">
-          <img class="ba-img" src="https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Before office">
-          <p><strong>⬅️ Before:</strong> Messy, uninspiring</p>
-        </div>
-        <div class="ba-card fade-up">
-          <img class="ba-img" src="https://images.unsplash.com/photo-1616486338812-3bade91c1e9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="After office">
-          <p><strong>➡️ After:</strong> Modern, productive, stylish</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Client Reviews / Testimonials Section -->
+  <!-- Map Section (small map indicating location) -->
   <section style="background: var(--gray-bg);">
     <div class="container">
-      <h2 class="fade-up" style="text-align: center;">What Lagos homeowners are saying — <span style="color: var(--yellow);">100% real</span></h2>
-      <div class="testimonials-grid">
-        <div class="testimonial-card fade-up">
-          <div class="stars">★★★★★</div>
-          <p>“Handygidi turned my dull living room into a space I actually want to host in. The before/after difference is night and day. Professional, fast, and genuinely caring.”</p>
-          <p style="margin-top: 16px; font-weight: 600;">– Adaobi, Lekki</p>
-        </div>
-        <div class="testimonial-card fade-up">
-          <div class="stars">★★★★★</div>
-          <p>“Our office looks like a global brand now. The team understood our culture and created a workspace that boosts productivity. Best decision we made.”</p>
-          <p style="margin-top: 16px; font-weight: 600;">– Michael, VI</p>
-        </div>
-        <div class="testimonial-card fade-up">
-          <div class="stars">★★★★★</div>
-          <p>“I was nervous about hiring a designer, but Handygidi made it effortless. They listened, stayed within budget, and the result is stunning. My bedroom is now my sanctuary.”</p>
-          <p style="margin-top: 16px; font-weight: 600;">– Ngozi, Ikeja</p>
-        </div>
-        <div class="testimonial-card fade-up">
-          <div class="stars">★★★★★</div>
-          <p>“The furniture quality and design advice were top-notch. They even helped with lighting and accessories. My apartment has never looked this good.”</p>
-          <p style="margin-top: 16px; font-weight: 600;">– Tunde, GRA</p>
+      <h2 class="fade-up" style="text-align: center;">We serve all of Lagos — <span style="color: var(--yellow);">based in Lekki</span></h2>
+      <div class="map-container fade-up" id="mapContainer">
+        <div id="map"></div>
+      </div>
+      <p style="text-align: center; margin-top: 16px;">📍 Our design studio & showroom (by appointment) – Lekki Phase 1, Lagos</p>
+    </div>
+  </section>
+
+  <!-- Consultation Booking Section (dedicated) -->
+  <section id="booking">
+    <div class="container">
+      <div class="booking-section fade-up">
+        <div class="booking-inner">
+          <h2 style="text-align: center;">Book a <span style="color: var(--yellow);">free consultation</span></h2>
+          <p style="text-align: center; max-width: 600px; margin: 0 auto 30px;">No pressure, no fees. Just a friendly chat about your space, style, and budget.</p>
+          <form id="bookingForm" style="max-width: 700px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <input type="text" placeholder="Full name" required>
+              <input type="tel" placeholder="Phone number" required>
+            </div>
+            <input type="email" placeholder="Email address">
+            <select required>
+              <option value="">Preferred consultation method</option>
+              <option>Phone call</option>
+              <option>WhatsApp video</option>
+              <option>In-person (Lekki studio)</option>
+              <option>Zoom / Google Meet</option>
+            </select>
+            <input type="date" placeholder="Preferred date" style="margin-bottom: 16px;">
+            <textarea rows="3" placeholder="Tell us about your project (e.g., living room makeover, full apartment, office)..."></textarea>
+            <button type="submit" class="btn-primary" style="width:100%;">Request free consultation →</button>
+          </form>
+          <p style="text-align: center; margin-top: 20px; font-size: 0.9rem;">We’ll respond within 2 hours during business days (8am–6pm).</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Call to Action with Background Image -->
+  <!-- Final CTA with background image -->
   <section class="cta-bg">
     <div class="container" style="text-align: center;">
-      <h2 class="fade-up">Ready to see your own space here?</h2>
-      <p style="font-size: 1.2rem; max-width: 550px; margin: 0 auto 20px;">Book a free consultation and let’s create a transformation you’ll love.</p>
-      <a href="#" class="btn-primary" style="background: #F4B400; color: black;">👉 Book your free session</a>
-      <p style="margin-top: 24px;"><i class="fab fa-whatsapp"></i> Or WhatsApp +234 901 234 5678</p>
+      <h2 class="fade-up">Ready to transform your space?</h2>
+      <p style="font-size: 1.2rem; max-width: 550px; margin: 0 auto 20px;">Don’t wait – your dream home is just a conversation away.</p>
+      <a href="#booking" class="btn-primary" style="background: #F4B400; color: black;">👉 Book your free session</a>
+      <p style="margin-top: 24px;"><i class="fab fa-whatsapp"></i> Or WhatsApp us for immediate chat</p>
     </div>
   </section>
 </main>
@@ -1052,61 +429,33 @@
   </div>
 </footer>
 
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-  // Portfolio Data (replace with your own images and projects)
-  const portfolioItems = [
-    { title: "Minimalist Haven", category: "living", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Neutral tones, natural light, and custom furniture." },
-    { title: "Luxury Lounge", category: "living", img: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Velvet sofas, gold accents, gallery walls." },
-    { title: "Serene Bedroom", category: "bedroom", img: "https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Calming blues, layered textures, smart storage." },
-    { title: "Modern Master", category: "bedroom", img: "https://images.unsplash.com/photo-1616486338812-3bade91c1e9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Statement headboard, mood lighting, organic accents." },
-    { title: "Corporate Elegance", category: "office", img: "https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Ergonomic, minimalist, brand-aligned design." },
-    { title: "Creative Hub", category: "office", img: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Open plan, breakout zones, inspiring colors." },
-    { title: "Dining Perfection", category: "dining", img: "https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Marble table, pendant lights, curated art." },
-    { title: "Cozy Nook", category: "dining", img: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Warm wood, banquette seating, family-friendly." }
-  ];
+  // Initialize map (Lekki Phase 1, Lagos coordinates)
+  const map = L.map('map').setView([6.4654, 3.9084], 13); // Lekki area
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19
+  }).addTo(map);
+  // Marker for Handygidi showroom
+  L.marker([6.4654, 3.9084]).addTo(map)
+    .bindPopup('<b>Handygidi Studio</b><br>Lekki Phase 1, Lagos<br>By appointment only')
+    .openPopup();
 
-  function renderPortfolio(filter = "all") {
-    const grid = document.getElementById("portfolioGrid");
-    if (!grid) return;
-    const filtered = filter === "all" ? portfolioItems : portfolioItems.filter(item => item.category === filter);
-    grid.innerHTML = filtered.map(item => `
-      <div class="portfolio-item fade-up">
-        <img class="portfolio-img" src="${item.img}" alt="${item.title}">
-        <div class="portfolio-info">
-          <div class="portfolio-category">${item.category === "living" ? "Living Room" : item.category === "bedroom" ? "Bedroom" : item.category === "office" ? "Office" : "Dining"}</div>
-          <div class="portfolio-title">${item.title}</div>
-          <p style="color: #666;">${item.desc}</p>
-        </div>
-      </div>
-    `).join("");
-    // Re-trigger fade-up observer for new items
-    const faders = document.querySelectorAll('.fade-up');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    faders.forEach(el => observer.observe(el));
-  }
-
-  // Filter button event listeners
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.getAttribute('data-filter');
-      renderPortfolio(filter);
+  // Simple form handling (prevent default, show alert)
+  const forms = document.querySelectorAll('form');
+  forms.forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you! We’ll get back to you within a few hours. (Demo mode)');
+      form.reset();
     });
   });
 
-  // Initial render
-  renderPortfolio("all");
-
-  // Fade-up observer for static elements
-  const faders = document.querySelectorAll('.fade-up:not(.portfolio-item .fade-up)');
+  // Intersection Observer for fade-up
+  const faders = document.querySelectorAll('.fade-up');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1114,419 +463,7 @@
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
-  faders.forEach(el => observer.observe(el));
-  window.addEventListener('load', () => {
-    faders.forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
-    });
-  });
-</script>
-</body>
-</html>
-      <a href="#" class="btn-nav">Book consult</a>
-    </div>
-  </div>
-</nav>
-
-<main>
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container hero-content">
-      <h1>Our work speaks for itself — <span style="color: #F4B400;">see the transformations</span></h1>
-      <p>Real projects. Real homes. Real emotions. Browse through our portfolio and read what our clients have to say.</p>
-      <a href="#" class="btn-primary">Book a free consultation →</a>
-    </div>
-  </section>
-
-  <!-- Portfolio with Filters -->
-  <section>
-    <div class="container">
-      <div class="filters fade-up">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="living">Living Room</button>
-        <button class="filter-btn" data-filter="bedroom">Bedroom</button>
-        <button class="filter-btn" data-filter="office">Office</button>
-        <button class="filter-btn" data-filter="dining">Dining</button>
-      </div>
-      <div class="portfolio-grid" id="portfolioGrid">
-        <!-- Items will be populated by JS, but static fallback included -->
-      </div>
-      <div style="text-align: center; margin-top: 50px;">
-        <a href="#" class="btn-secondary">View full case studies →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Before & After Transformation Section (with bg image) -->
-  <section class="beforeafter-bg">
-    <div class="container">
-      <h2 class="fade-up" style="text-align: center;">The proof is in the <span style="color: var(--yellow);">transformation</span></h2>
-      <div class="ba-grid">
-        <div class="ba-card fade-up">
-          <img class="ba-img" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Before living room">
-          <p><strong>⬅️ Before:</strong> Dark, cramped, outdated</p>
-        </div>
-        <div class="ba-card fade-up">
-          <img class="ba-img" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="After living room">
-          <p><strong>➡️ After:</strong> Bright, spacious, elegant</p>
-        </div>
-        <div class="ba-card fade-up">
-          <img class="ba-img" src="https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Before office">
-          <p><strong>⬅️ Before:</strong> Messy, uninspiring</p>
-        </div>
-        <div class="ba-card fade-up">
-          <img class="ba-img" src="https://images.unsplash.com/photo-1616486338812-3bade91c1e9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="After office">
-          <p><strong>➡️ After:</strong> Modern, productive, stylish</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Client Reviews / Testimonials Section -->
-  <section style="background: var(--gray-bg);">
-    <div class="container">
-      <h2 class="fade-up" style="text-align: center;">What Lagos homeowners are saying — <span style="color: var(--yellow);">100% real</span></h2>
-      <div class="testimonials-grid">
-        <div class="testimonial-card fade-up">
-          <div class="stars">★★★★★</div>
-          <p>“Handygidi turned my dull living room into a space I actually want to host in. The before/after difference is night and day. Professional, fast, and genuinely caring.”</p>
-          <p style="margin-top: 16px; font-weight: 600;">– Adaobi, Lekki</p>
-        </div>
-        <div class="testimonial-card fade-up">
-          <div class="stars">★★★★★</div>
-          <p>“Our office looks like a global brand now. The team understood our culture and created a workspace that boosts productivity. Best decision we made.”</p>
-          <p style="margin-top: 16px; font-weight: 600;">– Michael, VI</p>
-        </div>
-        <div class="testimonial-card fade-up">
-          <div class="stars">★★★★★</div>
-          <p>“I was nervous about hiring a designer, but Handygidi made it effortless. They listened, stayed within budget, and the result is stunning. My bedroom is now my sanctuary.”</p>
-          <p style="margin-top: 16px; font-weight: 600;">– Ngozi, Ikeja</p>
-        </div>
-        <div class="testimonial-card fade-up">
-          <div class="stars">★★★★★</div>
-          <p>“The furniture quality and design advice were top-notch. They even helped with lighting and accessories. My apartment has never looked this good.”</p>
-          <p style="margin-top: 16px; font-weight: 600;">– Tunde, GRA</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Call to Action with Background Image -->
-  <section class="cta-bg">
-    <div class="container" style="text-align: center;">
-      <h2 class="fade-up">Ready to see your own space here?</h2>
-      <p style="font-size: 1.2rem; max-width: 550px; margin: 0 auto 20px;">Book a free consultation and let’s create a transformation you’ll love.</p>
-      <a href="#" class="btn-primary" style="background: #F4B400; color: black;">👉 Book your free session</a>
-      <p style="margin-top: 24px;"><i class="fab fa-whatsapp"></i> Or WhatsApp +234 901 234 5678</p>
-    </div>
-  </section>
-</main>
-
-<!-- Footer -->
-<footer>
-  <div class="container footer-grid">
-    <div class="footer-col">
-      <h4>Handygidi</h4>
-      <p>Premium interior design & furniture – Lagos wide. We make spaces you’ll love.</p>
-      <div class="social-icons" style="margin-top: 16px;">
-        <i class="fab fa-instagram"></i> <i class="fab fa-facebook"></i> <i class="fab fa-twitter"></i>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h4>Explore</h4>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Portfolio</a>
-      <a href="#">Services</a>
-      <a href="#">Contact</a>
-    </div>
-    <div class="footer-col">
-      <h4>Legal</h4>
-      <a href="#">Privacy policy</a>
-      <a href="#">Terms of service</a>
-      <a href="#">Refund policy</a>
-    </div>
-    <div class="footer-col newsletter">
-      <h4>Get design ideas</h4>
-      <input type="email" placeholder="Your email">
-      <button class="btn-primary" style="margin-top: 10px;">Subscribe</button>
-    </div>
-  </div>
-  <div class="container" style="text-align: center; border-top: 1px solid #333; padding-top: 24px;">
-    <p>© 2025 Handygidi – Style without stress. All rights reserved.</p>
-  </div>
-</footer>
-
-<script>
-  // Portfolio Data (replace with your own images and projects)
-  const portfolioItems = [
-    { title: "Minimalist Haven", category: "living", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Neutral tones, natural light, and custom furniture." },
-    { title: "Luxury Lounge", category: "living", img: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Velvet sofas, gold accents, gallery walls." },
-    { title: "Serene Bedroom", category: "bedroom", img: "https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Calming blues, layered textures, smart storage." },
-    { title: "Modern Master", category: "bedroom", img: "https://images.unsplash.com/photo-1616486338812-3bade91c1e9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Statement headboard, mood lighting, organic accents." },
-    { title: "Corporate Elegance", category: "office", img: "https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Ergonomic, minimalist, brand-aligned design." },
-    { title: "Creative Hub", category: "office", img: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Open plan, breakout zones, inspiring colors." },
-    { title: "Dining Perfection", category: "dining", img: "https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Marble table, pendant lights, curated art." },
-    { title: "Cozy Nook", category: "dining", img: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Warm wood, banquette seating, family-friendly." }
-  ];
-
-  function renderPortfolio(filter = "all") {
-    const grid = document.getElementById("portfolioGrid");
-    if (!grid) return;
-    const filtered = filter === "all" ? portfolioItems : portfolioItems.filter(item => item.category === filter);
-    grid.innerHTML = filtered.map(item => `
-      <div class="portfolio-item fade-up">
-        <img class="portfolio-img" src="${item.img}" alt="${item.title}">
-        <div class="portfolio-info">
-          <div class="portfolio-category">${item.category === "living" ? "Living Room" : item.category === "bedroom" ? "Bedroom" : item.category === "office" ? "Office" : "Dining"}</div>
-          <div class="portfolio-title">${item.title}</div>
-          <p style="color: #666;">${item.desc}</p>
-        </div>
-      </div>
-    `).join("");
-    // Re-trigger fade-up observer for new items
-    const faders = document.querySelectorAll('.fade-up');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    faders.forEach(el => observer.observe(el));
-  }
-
-  // Filter button event listeners
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.getAttribute('data-filter');
-      renderPortfolio(filter);
-    });
-  });
-
-  // Initial render
-  renderPortfolio("all");
-
-  // Fade-up observer for static elements
-  const faders = document.querySelectorAll('.fade-up:not(.portfolio-item .fade-up)');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  faders.forEach(el => observer.observe(el));
-  window.addEventListener('load', () => {
-    faders.forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
-    });
-  });
-</script>
-</body>
-</html>
-      <a href="#" class="btn-nav">Book consult</a>
-    </div>
-  </div>
-</nav>
-
-<main>
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container hero-content">
-      <h1>Our work speaks for itself — <span style="color: #F4B400;">see the transformations</span></h1>
-      <p>Real projects. Real homes. Real emotions. Browse through our portfolio and read what our clients have to say.</p>
-      <a href="#" class="btn-primary">Book a free consultation →</a>
-    </div>
-  </section>
-
-  <!-- Portfolio with Filters -->
-  <section>
-    <div class="container">
-      <div class="filters fade-up">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="living">Living Room</button>
-        <button class="filter-btn" data-filter="bedroom">Bedroom</button>
-        <button class="filter-btn" data-filter="office">Office</button>
-        <button class="filter-btn" data-filter="dining">Dining</button>
-      </div>
-      <div class="portfolio-grid" id="portfolioGrid">
-        <!-- Items will be populated by JS, but static fallback included -->
-      </div>
-      <div style="text-align: center; margin-top: 50px;">
-        <a href="#" class="btn-secondary">View full case studies →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Before & After Transformation Section (with bg image) -->
-  <section class="beforeafter-bg">
-    <div class="container">
-      <h2 class="fade-up" style="text-align: center;">The proof is in the <span style="color: var(--yellow);">transformation</span></h2>
-      <div class="ba-grid">
-        <div class="ba-card fade-up">
-          <img class="ba-img" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Before living room">
-          <p><strong>⬅️ Before:</strong> Dark, cramped, outdated</p>
-        </div>
-        <div class="ba-card fade-up">
-          <img class="ba-img" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="After living room">
-          <p><strong>➡️ After:</strong> Bright, spacious, elegant</p>
-        </div>
-        <div class="ba-card fade-up">
-          <img class="ba-img" src="https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Before office">
-          <p><strong>⬅️ Before:</strong> Messy, uninspiring</p>
-        </div>
-        <div class="ba-card fade-up">
-          <img class="ba-img" src="https://images.unsplash.com/photo-1616486338812-3bade91c1e9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="After office">
-          <p><strong>➡️ After:</strong> Modern, productive, stylish</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Client Reviews / Testimonials Section -->
-  <section style="background: var(--gray-bg);">
-    <div class="container">
-      <h2 class="fade-up" style="text-align: center;">What Lagos homeowners are saying — <span style="color: var(--yellow);">100% real</span></h2>
-      <div class="testimonials-grid">
-        <div class="testimonial-card fade-up">
-          <div class="stars">★★★★★</div>
-          <p>“Handygidi turned my dull living room into a space I actually want to host in. The before/after difference is night and day. Professional, fast, and genuinely caring.”</p>
-          <p style="margin-top: 16px; font-weight: 600;">– Adaobi, Lekki</p>
-        </div>
-        <div class="testimonial-card fade-up">
-          <div class="stars">★★★★★</div>
-          <p>“Our office looks like a global brand now. The team understood our culture and created a workspace that boosts productivity. Best decision we made.”</p>
-          <p style="margin-top: 16px; font-weight: 600;">– Michael, VI</p>
-        </div>
-        <div class="testimonial-card fade-up">
-          <div class="stars">★★★★★</div>
-          <p>“I was nervous about hiring a designer, but Handygidi made it effortless. They listened, stayed within budget, and the result is stunning. My bedroom is now my sanctuary.”</p>
-          <p style="margin-top: 16px; font-weight: 600;">– Ngozi, Ikeja</p>
-        </div>
-        <div class="testimonial-card fade-up">
-          <div class="stars">★★★★★</div>
-          <p>“The furniture quality and design advice were top-notch. They even helped with lighting and accessories. My apartment has never looked this good.”</p>
-          <p style="margin-top: 16px; font-weight: 600;">– Tunde, GRA</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Call to Action with Background Image -->
-  <section class="cta-bg">
-    <div class="container" style="text-align: center;">
-      <h2 class="fade-up">Ready to see your own space here?</h2>
-      <p style="font-size: 1.2rem; max-width: 550px; margin: 0 auto 20px;">Book a free consultation and let’s create a transformation you’ll love.</p>
-      <a href="#" class="btn-primary" style="background: #F4B400; color: black;">👉 Book your free session</a>
-      <p style="margin-top: 24px;"><i class="fab fa-whatsapp"></i> Or WhatsApp +234 901 234 5678</p>
-    </div>
-  </section>
-</main>
-
-<!-- Footer -->
-<footer>
-  <div class="container footer-grid">
-    <div class="footer-col">
-      <h4>Handygidi</h4>
-      <p>Premium interior design & furniture – Lagos wide. We make spaces you’ll love.</p>
-      <div class="social-icons" style="margin-top: 16px;">
-        <i class="fab fa-instagram"></i> <i class="fab fa-facebook"></i> <i class="fab fa-twitter"></i>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h4>Explore</h4>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Portfolio</a>
-      <a href="#">Services</a>
-      <a href="#">Contact</a>
-    </div>
-    <div class="footer-col">
-      <h4>Legal</h4>
-      <a href="#">Privacy policy</a>
-      <a href="#">Terms of service</a>
-      <a href="#">Refund policy</a>
-    </div>
-    <div class="footer-col newsletter">
-      <h4>Get design ideas</h4>
-      <input type="email" placeholder="Your email">
-      <button class="btn-primary" style="margin-top: 10px;">Subscribe</button>
-    </div>
-  </div>
-  <div class="container" style="text-align: center; border-top: 1px solid #333; padding-top: 24px;">
-    <p>© 2025 Handygidi – Style without stress. All rights reserved.</p>
-  </div>
-</footer>
-
-<script>
-  // Portfolio Data (replace with your own images and projects)
-  const portfolioItems = [
-    { title: "Minimalist Haven", category: "living", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Neutral tones, natural light, and custom furniture." },
-    { title: "Luxury Lounge", category: "living", img: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Velvet sofas, gold accents, gallery walls." },
-    { title: "Serene Bedroom", category: "bedroom", img: "https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Calming blues, layered textures, smart storage." },
-    { title: "Modern Master", category: "bedroom", img: "https://images.unsplash.com/photo-1616486338812-3bade91c1e9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Statement headboard, mood lighting, organic accents." },
-    { title: "Corporate Elegance", category: "office", img: "https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Ergonomic, minimalist, brand-aligned design." },
-    { title: "Creative Hub", category: "office", img: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Open plan, breakout zones, inspiring colors." },
-    { title: "Dining Perfection", category: "dining", img: "https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Marble table, pendant lights, curated art." },
-    { title: "Cozy Nook", category: "dining", img: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", desc: "Warm wood, banquette seating, family-friendly." }
-  ];
-
-  function renderPortfolio(filter = "all") {
-    const grid = document.getElementById("portfolioGrid");
-    if (!grid) return;
-    const filtered = filter === "all" ? portfolioItems : portfolioItems.filter(item => item.category === filter);
-    grid.innerHTML = filtered.map(item => `
-      <div class="portfolio-item fade-up">
-        <img class="portfolio-img" src="${item.img}" alt="${item.title}">
-        <div class="portfolio-info">
-          <div class="portfolio-category">${item.category === "living" ? "Living Room" : item.category === "bedroom" ? "Bedroom" : item.category === "office" ? "Office" : "Dining"}</div>
-          <div class="portfolio-title">${item.title}</div>
-          <p style="color: #666;">${item.desc}</p>
-        </div>
-      </div>
-    `).join("");
-    // Re-trigger fade-up observer for new items
-    const faders = document.querySelectorAll('.fade-up');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    faders.forEach(el => observer.observe(el));
-  }
-
-  // Filter button event listeners
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.getAttribute('data-filter');
-      renderPortfolio(filter);
-    });
-  });
-
-  // Initial render
-  renderPortfolio("all");
-
-  // Fade-up observer for static elements
-  const faders = document.querySelectorAll('.fade-up:not(.portfolio-item .fade-up)');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.15, rootMargin: "0px 0px -20px 0px" });
   faders.forEach(el => observer.observe(el));
   window.addEventListener('load', () => {
     faders.forEach(el => {
